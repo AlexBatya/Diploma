@@ -8,11 +8,12 @@ function [Mz_wz, Mz_Alpha, Ya_Alpha Mz_deltaB] = AllCalculations(mah,height)
     X_Fe=interp1(M11,X_Fe1,mah,'spline');
     Cy_AlphaE=interp1(M11,Cy_AlphaE1,mah,'spline'); 
 
-    q=0.7.*mah.^2.*p;
-    mz_Wz=mz_wz*ba/(mah*a);
+
+    q=0.7.*mah.^2.*p';
+    mz_Wz=mz_wz.*ba./(mah.*a');
     mz_Alpha=(X_Tzv-X_F).*Cy_Alpha;
     mz_deltaB=(X_T-X_Fe).*Cy_AlphaE;
-    Ya_Alpha=Cy_Alpha.*q.*S/(mah.*a.*m);
+    Ya_Alpha=Cy_Alpha.*q.*S./(mah.*a'.*m);
     Mz_wz=mz_Wz.*q.*S.*ba./Jz;
     Mz_Alpha=mz_Alpha.*q.*S.*ba./Jz;
     Mz_deltaB=mz_deltaB.*q.*S.*ba./Jz;
