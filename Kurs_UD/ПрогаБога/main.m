@@ -1,4 +1,4 @@
-global aa m pa S ba Jz mz_wz1 Cy_Alpha1 X_Tzv X_Fe1 X_T X_F1 Cy_AlphaE1 M11 Ha
+global aa mass pa S ba Jz mz_wz1 Cy_Alpha1 X_Tzv X_Fe1 X_T X_F1 Cy_AlphaE1 M11 Ha
 load('Area_of_possible_flights.mat');
 load('Aerodynamics.mat');
 load('AtmosphereStandard.mat');
@@ -8,7 +8,7 @@ m=180000;
 Jz=7.7*10^6;
 X_Tzv=0.25;
 
-% [Mz_wz, Mz_Alpha, Ya_Alpha Mz_deltaB] = AllCalculations(0.5,5000)
+% [Mz_wz, Mz_Alpha, Ya_Alpha Mz_deltaB] = AllCalculations(2.4,11000);
 [A,B,C,D]=StateSpace(2,18000);
 diffura=ss(A,B,C,D);
 diffura.StateName = {'Alpha', 'wz', 'Vy'};
@@ -31,10 +31,7 @@ for i=1:n
     M5(i,:)=M6;
 end
 
-Drive=DriveParameters(M5,H);
-
-p=tf('s');
-W_wzZAM = feedback(tf(diffura(2)),K_wz);
-W_vZAM = feedback(1/p*W_wzZAM*-K_v,1)
+[Drive,w]=DriveParameters(M5,H);
+[W_raz,K_v,K_wz]=Synthesis_of_ACS(2.4,18000,w)
 
 
