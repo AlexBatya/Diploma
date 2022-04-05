@@ -1,3 +1,4 @@
+clear
 global aa mass pa S ba Jz mz_wz1 Cy_Alpha1 X_Tzv X_Fe1 X_T X_F1 Cy_AlphaE1 M11 Ha
 load('Area_of_possible_flights.mat');
 load('Aerodynamics.mat');
@@ -30,6 +31,8 @@ for i=1:n
 end
 
 [Drive,w]=DriveParameters(M5,H);
-[W_raz,K_v,K_wz]=Synthesis_of_ACS(2.4,18000,w)
+[W_raz,K_v,K_wz,K_H]=Synthesis_of_ACS(2.4,18000,w)
+
+W_zam=feedback(W_raz,1)
 
 
