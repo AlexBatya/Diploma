@@ -31,7 +31,7 @@ for i=1:n
 end
 
 [Drive,w]=DriveParameters(M5,H);
-[W_raz,K_v,K_wz,K_H]=Synthesis_of_ACS(2.4,18000,w)
+[W_raz,K_v,K_wz,K_H,i_H,i_p]=Synthesis_of_ACS(2.4,18000,w)
 
 W_zam=feedback(W_raz,1)
 
