@@ -9,7 +9,6 @@ function [W_raz,K_v,K_wz,K_H,i_p,i_H]=Synthesis_of_ACS(mah,height,w0_max)
     e=0.25;
     K_wzGr=1/(0.01*Mz_deltaB);
     nu=w0_max;
-    h=0.25;
     K_wz=e*K_wzGr;
     K_v=nu*K_wz;
     K_H=V;
@@ -36,6 +35,7 @@ function [W_raz,K_v,K_wz,K_H,i_p,i_H]=Synthesis_of_ACS(mah,height,w0_max)
         if and(ksi<1,ksi>0.6) | ksi<0.6
             K_wz=e*K_wzGr;
             K_v=nu*K_wz;
+            ksi
             answer=true;
         end
     end

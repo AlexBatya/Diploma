@@ -7,7 +7,7 @@ S=360;
 ba=14.5;
 mass=180000;
 Jz=7.7*10^6;
-X_Tzv=0.47;
+X_Tzv=0.25;
 
 [A,B,C,D]=StateSpace(2,11000);
 diffura=ss(A,B,C,D);
@@ -29,6 +29,12 @@ for i=1:n
     M5(i,:)=M6;
 end
 % [Mz_wz, Mz_Alpha, Ya_Alpha Mz_deltaB V] = AllCalculations(M5,H);
+% Mz_wz=max(Mz_wz);
+% Mz_wz=max(Mz_wz);
+% Mz_Alpha=max(Mz_Alpha);
+% Mz_Alpha=max(Mz_Alpha);
+% Ya_Alpha=max(Ya_Alpha);
+% Ya_Alpha=max(Ya_Alpha);
 
 [Drive,w]=DriveParameters(M5,H);
 

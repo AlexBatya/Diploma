@@ -6,7 +6,8 @@ function [W_drive,w] = DriveParameters(mah,height)
     
     w1=max(w);
     w=max(w1);
-    T=0.03;
+    w=20;
+    T=1/w;
 
     p=tf('s');
     W_drive=1/(T^2*p^2+2*ksi*T*p+1);
