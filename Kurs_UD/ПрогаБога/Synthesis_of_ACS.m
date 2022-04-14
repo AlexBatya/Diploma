@@ -1,25 +1,25 @@
-function [W_raz,K_v,K_wz,K_H,i_H,i_p]=Synthesis_of_ACS(mah,height,w0_max)
-    [Mz_wz, Mz_Alpha, Ya_Alpha Mz_deltaB] = AllCalculations(mah,height);
+function [W_raz,K_v,K_wz,K_H,i_p,i_H]=Synthesis_of_ACS(mah,height,w0_max)
+    [Mz_wz, Mz_Alpha, Ya_Alpha Mz_deltaB V] = AllCalculations(mah,height);
     [Drive]= DriveParameters(mah,height);
     [A,B,C,D] = StateSpace(mah,height);
     diffura=ss(A,B,C,D);
     p=tf('s');
 
     
-
     e=0.25;
     K_wzGr=1/(0.01*Mz_deltaB);
     nu=w0_max;
     h=0.25;
     K_wz=e*K_wzGr;
     K_v=nu*K_wz;
-    K_H=200;
-    
+    K_H=V;
+    W_wzZAM = feedback(tf(diffura(2))*Drive,K_wz);
+        W_raz = 1/p*W_wzZAM*K_v;
+
     answer=false;
     while(~answer)
-        W_wzZAM = feedback(tf(diffura(2))*Drive,K_wz);
+        W_wzZAM = feedback(tf(diffura(2))*Drive,K_wz,-1);
         W_raz = 1/p*W_wzZAM*K_v;
-        W_v=feedback(W_raz,1);
     
         [w,ksi,a] = damp(W_raz);
         ksi=ksi(2);
@@ -35,13 +35,14 @@ function [W_raz,K_v,K_wz,K_H,i_H,i_p]=Synthesis_of_ACS(mah,height,w0_max)
             K_wz=e*K_wzGr;
             K_v=nu*K_wz;
             [w,ksi,a] = damp(W_raz);
-            T=1./w;
-            i_H=0.8/T(2)/K_H
-            i_p=0.064/(T(2)^2*K_H)
+            W_v=feedback(W_raz,1);
+            margin(W_v);
             answer=true;
         end
-        
-        
     end
-
-end
+    i_H=0.8/(1/Ya_Alpha*V);
+    W_hRAZ=W_v*K_H*(1/(1/Ya_Alpha*p+1))*i_H;
+    % W_hRAZ=diffura(3)*i_H;
+    margin(W_hRAZ);
+    i_p=1;
+end 

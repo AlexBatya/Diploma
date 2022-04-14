@@ -1,5 +1,5 @@
 function [W_drive,w] = DriveParameters(mah,height)
-    [Mz_wz, Mz_Alpha Ya_Alpha Mz_deltaB]=AllCalculations(mah,height);
+    [Mz_wz, Mz_Alpha Ya_Alpha Mz_deltaB V]=AllCalculations(mah,height);
 
     ksi=0.5;
     w=sqrt(-Mz_wz.*Ya_Alpha-Mz_Alpha);
@@ -7,9 +7,12 @@ function [W_drive,w] = DriveParameters(mah,height)
     w1=max(w);
     w=max(w1);
 
-    w=w;
+    w=20;
+
+    T=1/w;
+    % T=0.04;
 
     p=tf('s');
-    W_drive=1/(1/w^2*p^2+2*ksi*1/w*p+1);
+    W_drive=1/(T^2*p^2+2*ksi*T*p+1);
 
 end

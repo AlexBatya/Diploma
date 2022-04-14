@@ -1,6 +1,6 @@
 function [A,B,C,D] = StateSpace(mah,height)
    global aa Ha
-   [Mz_wz Mz_Alpha Ya_Alpha Mz_deltaB]=AllCalculations(mah,height);
+   [Mz_wz Mz_Alpha Ya_Alpha Mz_deltaB V]=AllCalculations(mah,height);
    a=interp1(Ha,aa,height,'spline');
     
    A=[-Ya_Alpha 1 0;
