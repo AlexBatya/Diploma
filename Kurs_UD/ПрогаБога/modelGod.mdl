@@ -1,13 +1,12 @@
 Model {
   Name			  "modelGod"
-  Version		  10.2
+  Version		  9.3
   SavedCharacterEncoding  "windows-1251"
-  ModelUUID		  "0a1f497c-66c6-4446-a17a-2702a9359909"
   GraphicalInterface {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.22"
+    ComputedModelVersion    "1.23"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -18,15 +17,12 @@ Model {
     PreCompExecutionDomainType "Unset"
     IsExportFunctionModel   0
     IsArchitectureModel	    0
-    IsAUTOSARArchitectureModel 0
     NumParameterArguments   0
     NumExternalFileReferences 0
     OrderedModelArguments   1
   }
-  slcheck_filter_plugin	  "on"
   NotesPlugin		  "on"
   WebScopes_FoundationPlugin "on"
-  AnimationPlugin	  "on"
   LogicAnalyzerPlugin	  "on"
   SLCCPlugin		  "on"
   DiagnosticSuppressor	  "on"
@@ -85,118 +81,98 @@ Model {
 	Object {
 	  $ObjectID		  6
 	  IsActive		  [1]
-	  IsTabbed		  [1]
 	  ViewObjType		  "SimulinkTopLevel"
 	  LoadSaveID		  "0"
 	  Extents		  [1152.0, 602.0]
 	  ZoomFactor		  [0.8]
 	  Offset		  [-239.82048986727784, 414.22013957326453]
-	  SceneRectInView	  [-239.82048986727784, 414.22013957326453, 1440.0, 752.5]
 	}
 	Object {
 	  $ObjectID		  7
 	  IsActive		  [0]
-	  IsTabbed		  [1]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "55"
 	  Extents		  [1152.0, 602.0]
 	  ZoomFactor		  [1.0]
 	  Offset		  [-153.8125, -62.0]
-	  SceneRectInView	  [-153.8125, -62.0, 1152.0, 602.0]
 	}
 	Object {
 	  $ObjectID		  8
 	  IsActive		  [0]
-	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "80"
 	  Extents		  [1152.0, 602.0]
 	  ZoomFactor		  [1.0]
 	  Offset		  [0.0, -88.5]
-	  SceneRectInView	  [0.0, -88.5, 1152.0, 602.0]
 	}
 	Object {
 	  $ObjectID		  9
 	  IsActive		  [0]
-	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "263"
 	  Extents		  [1152.0, 602.0]
 	  ZoomFactor		  [1.0]
 	  Offset		  [-251.0, -190.5]
-	  SceneRectInView	  [-251.0, -190.5, 1152.0, 602.0]
 	}
 	Object {
 	  $ObjectID		  10
 	  IsActive		  [0]
-	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "233"
 	  Extents		  [1152.0, 602.0]
 	  ZoomFactor		  [1.0]
 	  Offset		  [-66.0, -88.5]
-	  SceneRectInView	  [-66.0, -88.5, 1152.0, 602.0]
 	}
 	Object {
 	  $ObjectID		  11
 	  IsActive		  [0]
-	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "190"
 	  Extents		  [1152.0, 603.0]
 	  ZoomFactor		  [1.0]
 	  Offset		  [-66.0, -88.5]
-	  SceneRectInView	  [-66.0, -88.5, 1152.0, 603.0]
 	}
 	Object {
 	  $ObjectID		  12
 	  IsActive		  [0]
-	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "113"
 	  Extents		  [1152.0, 603.0]
 	  ZoomFactor		  [1.0]
 	  Offset		  [-326.0, -191.0]
-	  SceneRectInView	  [-326.0, -191.0, 1152.0, 603.0]
 	}
 	Object {
 	  $ObjectID		  13
 	  IsActive		  [0]
-	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "51"
 	  Extents		  [1152.0, 603.0]
 	  ZoomFactor		  [1.0]
 	  Offset		  [-251.0, -190.5]
-	  SceneRectInView	  [-251.0, -190.5, 1152.0, 603.0]
 	}
 	Object {
 	  $ObjectID		  14
 	  IsActive		  [0]
-	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "2"
 	  Extents		  [1152.0, 603.0]
 	  ZoomFactor		  [1.0]
 	  Offset		  [-153.8125, -62.5]
-	  SceneRectInView	  [-153.8125, -62.5, 1152.0, 603.0]
 	}
 	Object {
 	  $ObjectID		  15
 	  IsActive		  [0]
-	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "22"
 	  Extents		  [1152.0, 603.0]
 	  ZoomFactor		  [1.0]
 	  Offset		  [-251.0, -190.5]
-	  SceneRectInView	  [-251.0, -190.5, 1152.0, 603.0]
 	}
 	PropName		"EditorsInfo"
       }
       Array {
 	Type			"Simulink.DockComponentInfo"
-	Dimension		2
+	Dimension		1
 	Object {
 	  $ObjectID		  16
 	  Type			  "GLUE2:PropertyInspector"
@@ -210,19 +186,6 @@ Model {
 	  Height		  [480]
 	  Minimized		  "On"
 	}
-	Object {
-	  $ObjectID		  17
-	  Type			  "Simulink:Editor:ReferencedFiles"
-	  ID			  "Referenced Files"
-	  Visible		  [0]
-	  CreateCallback	  ""
-	  UserData		  "{\"filterShowRefModels\":\"true\",\"filterShowRefSubs\":\"true\",\"filterShowOnlyDirtyFiles\":\"false\"}\n"
-	  Floating		  [0]
-	  DockPosition		  "Left"
-	  Width			  [640]
-	  Height		  [480]
-	  Minimized		  "Unset"
-	}
 	PropName		"DockComponentsInfo"
       }
       WindowState	      "AAAA/wAAAAD9AAAAAgAAAAAAAAC9AAAB+PwCAAAABPsAAAAWAEQAbwBjAGsAVwBpAGQAZwBlAHQAMwEAAAAxAAAB+AAAA"
@@ -235,27 +198,18 @@ Model {
       "AAAAAAAAAEAAAABAAAAOABjAG8AbABsAGEAcABzAGkAYgBsAGUAUABhAG4AZQBsAFQAbwBvAGwAQgBhAHIAUgBpAGcAaAB0AwAAAAD/////AAAAA"
       "AAAAAAAAAADAAAAAQAAADoAYwBvAGwAbABhAHAAcwBpAGIAbABlAFAAYQBuAGUAbABUAG8AbwBsAEIAYQByAEIAbwB0AHQAbwBtAAAAAAD/////A"
       "AAAAAAAAAA="
-      Array {
-	Type			"Cell"
-	Dimension		0
-	PropName		"PersistedApps"
-      }
-      WindowUuid	      "049b9e34-37ee-47f1-9082-bb0b437e42fe"
     }
-    BDUuid		    "4fe48b02-6d68-49c2-8558-6412870bca4a"
   }
   HideAutomaticNames	  on
-  SequenceViewerTimePrecision 3
-  SequenceViewerHistory	  1000
   Created		  "Fri Apr 01 19:03:50 2022"
   Creator		  "User"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "User"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Apr 14 03:22:29 2022"
-  RTWModifiedTimeStamp	  571806816
-  ModelVersionFormat	  "%<AutoIncrement:1.22>"
+  LastModifiedDate	  "Thu Apr 14 03:23:07 2022"
+  RTWModifiedTimeStamp	  571807387
+  ModelVersionFormat	  "1.%<AutoIncrement:0>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "disabled"
@@ -290,12 +244,6 @@ Model {
   BrowserLookUnderMasks	  off
   MultiThreadCoSim	  "on"
   SimulationMode	  "normal"
-  SILPILModeSetting	  "automated"
-  SILPILSystemUnderTest	  "topmodel"
-  SILPILSimulationModeTopModel "normal"
-  SILPILSimulationModeModelRef "normal"
-  SimTabSimulationMode	  "normal"
-  CodeVerificationMode	  "software-in-the-loop (sil)"
   PauseTimes		  "5"
   NumberOfSteps		  1
   SnapshotBufferSize	  10
@@ -315,7 +263,7 @@ Model {
     $ObjectID		    18
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "modelGod"
-    overrideMode_	    [0U]
+    overrideMode_	    [0.0]
     Array {
       Type		      "Cell"
       Dimension		      1
@@ -335,7 +283,6 @@ Model {
   ExtModeTrigMode	  "normal"
   ExtModeTrigPort	  "1"
   ExtModeTrigElement	  "any"
-  ExtModeTrigSignalOutputPortIndex 0
   ExtModeTrigDuration	  1000
   ExtModeTrigDurationFloating "auto"
   ExtModeTrigHoldOff	  0
@@ -351,7 +298,6 @@ Model {
   ExtModeSkipDownloadWhenConnect off
   ExtModeLogAll		  on
   ExtModeAutoUpdateStatusClock on
-  VariantFading		  on
   ShowModelReferenceBlockVersion off
   ShowModelReferenceBlockIO off
   OrderedModelArguments	  on
@@ -360,7 +306,7 @@ Model {
     Dimension		    1
     Simulink.ConfigSet {
       $ObjectID		      19
-      Version		      "20.1.0"
+      Version		      "19.0.0"
       DisabledProps	      []
       Description	      ""
       Array {
@@ -368,7 +314,7 @@ Model {
 	Dimension		10
 	Simulink.SolverCC {
 	  $ObjectID		  20
-	  Version		  "20.1.0"
+	  Version		  "19.0.0"
 	  DisabledProps		  []
 	  Description		  ""
 	  Components		  []
@@ -406,11 +352,12 @@ Model {
 	  SampleTimeProperty	  []
 	  DecoupledContinuousIntegration off
 	  MinimalZcImpactIntegration off
-	  ODENIntegrationMethod	  "ode3"
+	  SolverOrder		  3
+	  Solver		  FixedStepAuto
 	}
 	Simulink.DataIOCC {
 	  $ObjectID		  21
-	  Version		  "20.1.0"
+	  Version		  "19.0.0"
 	  DisabledProps		  []
 	  Description		  ""
 	  Components		  []
@@ -452,7 +399,7 @@ Model {
 	}
 	Simulink.OptimizationCC {
 	  $ObjectID		  22
-	  Version		  "20.1.0"
+	  Version		  "19.0.0"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    9
@@ -489,7 +436,6 @@ Model {
 	  ExpressionFolding	  on
 	  BooleansAsBitfields	  off
 	  BitfieldContainerType	  "uint_T"
-	  BitwiseOrLogicalOp	  "Same as modeled"
 	  EnableMemcpy		  on
 	  MemcpyThreshold	  64
 	  PassReuseOutputArgsAs	  "Structure reference"
@@ -522,11 +468,10 @@ Model {
 	  LabelGuidedReuse	  off
 	  MultiThreadedLoops	  off
 	  DenormalBehavior	  "GradualUnderflow"
-	  EfficientTunableParamExpr off
 	}
 	Simulink.DebuggingCC {
 	  $ObjectID		  23
-	  Version		  "20.1.0"
+	  Version		  "19.0.0"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    1
@@ -603,14 +548,12 @@ Model {
 	  ModelReferenceIOMismatchMessage "none"
 	  UnknownTsInhSupMsg	  "warning"
 	  ModelReferenceDataLoggingMessage "warning"
-	  ModelReferenceNoExplicitFinalValueMsg	"none"
 	  ModelReferenceSymbolNameMessage "warning"
 	  ModelReferenceExtraNoncontSigs "error"
 	  StateNameClashWarn	  "none"
 	  OperatingPointInterfaceChecksumMismatchMsg "warning"
 	  NonCurrentReleaseOperatingPointMsg "error"
 	  ChecksumConsistencyForSSReuse	"none"
-	  PregeneratedLibrarySubsystemCodeDiagnostic "warning"
 	  MatchCodeGenerationContextForUpdateDiagram "none"
 	  InitInArrayFormatMsg	  "warning"
 	  StrictBusMsg		  "ErrorLevel1"
@@ -645,11 +588,10 @@ Model {
 	  UnderSpecifiedDimensionMsg "none"
 	  DebugExecutionForFMUViaOutOfProcess off
 	  ArithmeticOperatorsInVariantConditions "error"
-	  VariantConditionMismatch "none"
 	}
 	Simulink.HardwareCC {
 	  $ObjectID		  24
-	  Version		  "20.1.0"
+	  Version		  "19.0.0"
 	  DisabledProps		  []
 	  Description		  ""
 	  Components		  []
@@ -699,7 +641,7 @@ Model {
 	}
 	Simulink.ModelReferenceCC {
 	  $ObjectID		  25
-	  Version		  "20.1.0"
+	  Version		  "19.0.0"
 	  DisabledProps		  []
 	  Description		  ""
 	  Components		  []
@@ -719,7 +661,7 @@ Model {
 	}
 	Simulink.SFSimCC {
 	  $ObjectID		  26
-	  Version		  "20.1.0"
+	  Version		  "19.0.0"
 	  DisabledProps		  []
 	  Description		  ""
 	  Components		  []
@@ -748,22 +690,11 @@ Model {
 	  MATLABDynamicMemAllocThreshold 65536
 	  CustomCodeFunctionArrayLayout	[]
 	  DefaultCustomCodeFunctionArrayLayout "NotSpecified"
-	  CustomCodeUndefinedFunction "FilterOut"
-	  CustomCodeGlobalsAsFunctionIO	off
-	  SimTargetLang		  "C"
-	  GPUAcceleration	  off
-	  SimGPUMallocThreshold	  200
-	  SimGPUStackLimitPerThread 1024
-	  SimGPUErrorChecks	  off
-	  SimGPUCustomComputeCapability	""
-	  SimGPUCompilerFlags	  ""
-	  SimDLTargetLibrary	  "mkl-dnn"
-	  SimDLAutoTuning	  on
 	}
 	Simulink.RTWCC {
 	  $BackupClass		  "Simulink.RTWCC"
 	  $ObjectID		  27
-	  Version		  "20.1.0"
+	  Version		  "19.0.0"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    16
@@ -832,7 +763,6 @@ Model {
 	  CodeProfilingInstrumentation "off"
 	  SILDebugging		  off
 	  TargetLang		  "C"
-	  GenerateGPUCode	  "None"
 	  IncludeBusHierarchyInRTWFileBlockHierarchyMap	off
 	  GenerateTraceInfo	  off
 	  GenerateTraceReport	  off
@@ -848,28 +778,12 @@ Model {
 	  RTWCustomCompilerOptimizations ""
 	  CheckMdlBeforeBuild	  "Off"
 	  SharedConstantsCachingThreshold 1024
-	  GPUKernelNamePrefix	  ""
-	  GPUDeviceID		  -1
-	  GPUMallocMode		  "discrete"
-	  GPUMallocThreshold	  200
-	  GPUStackLimitPerThread  1024
-	  GPUcuBLAS		  on
-	  GPUcuSOLVER		  on
-	  GPUcuFFT		  on
-	  GPUErrorChecks	  off
-	  GPUComputeCapability	  "3.5"
-	  GPUCustomComputeCapability ""
-	  GPUCompilerFlags	  ""
-	  DLTargetLibrary	  "none"
-	  DLAutoTuning		  on
-	  DLArmComputeVersion	  "19.05"
-	  DLArmComputeArch	  "unspecified"
 	  Array {
 	    Type		    "Handle"
 	    Dimension		    2
 	    Simulink.CodeAppCC {
 	      $ObjectID		      28
-	      Version		      "20.1.0"
+	      Version		      "19.0.0"
 	      Array {
 		Type			"Cell"
 		Dimension		28
@@ -954,12 +868,11 @@ Model {
 	      ReqsInCode	      off
 	      UseSimReservedNames     off
 	      ReservedNameArray	      []
-	      EnumMemberNameClash     "error"
 	    }
 	    Simulink.GRTTargetCC {
 	      $BackupClass	      "Simulink.TargetCC"
 	      $ObjectID		      29
-	      Version		      "20.1.0"
+	      Version		      "19.0.0"
 	      Array {
 		Type			"Cell"
 		Dimension		16
@@ -1063,7 +976,7 @@ Model {
 	}
 	SlCovCC.ConfigComp {
 	  $ObjectID		  30
-	  Version		  "20.1.0"
+	  Version		  "19.0.0"
 	  DisabledProps		  []
 	  Description		  "Simulink Coverage Configuration Component"
 	  Components		  []
@@ -1102,7 +1015,7 @@ Model {
 	}
 	hdlcoderui.hdlcc {
 	  $ObjectID		  31
-	  Version		  "20.1.0"
+	  Version		  "19.0.0"
 	  DisabledProps		  []
 	  Description		  "HDL Coder custom configuration component"
 	  Components		  []
@@ -1142,7 +1055,7 @@ Model {
     ForegroundColor	    "black"
     BackgroundColor	    "white"
     DropShadow		    off
-    NameLocation	    "bottom"
+    NamePlacement	    "normal"
     FontName		    "Helvetica"
     FontSize		    10
     FontWeight		    "normal"
@@ -1308,7 +1221,6 @@ Model {
       Time		      "1"
       Before		      "0"
       After		      "1"
-      OutDataTypeStr	      "double"
       SampleTime	      "-1"
       VectorParams1D	      on
       ZeroCross		      on
@@ -1327,14 +1239,12 @@ Model {
       RTWFileNameOpts	      "Auto"
       FunctionInterfaceSpec   "void_void"
       FunctionWithSeparateData off
-      MatchGraphicalInterface off
       RTWMemSecFuncInitTerm   "Inherit from model"
       RTWMemSecFuncExecute    "Inherit from model"
       RTWMemSecDataConstants  "Inherit from model"
       RTWMemSecDataInternal   "Inherit from model"
       RTWMemSecDataParameters "Inherit from model"
       SimViewingDevice	      off
-      ActiveForDiff	      off
       DataTypeOverride	      "UseLocalSettings"
       DataTypeOverrideAppliesTo	"AllNumericTypes"
       MinMaxOverflowLogging   "UseLocalSettings"
@@ -1343,16 +1253,14 @@ Model {
       SFBlockType	      "NONE"
       Variant		      off
       VariantControlMode      "expression"
-      VariantActivationTime   "update diagram"
+      GeneratePreprocessorConditionals off
       AllowZeroVariantControls off
       PropagateVariantConditions off
       TreatAsGroupedWhenPropagatingVariantConditions on
       ContentPreviewEnabled   off
       IsWebBlock	      off
-      IsInjectorSS	      off
       Latency		      "0"
       AutoFrameSizeCalculation off
-      IsWebBlockPanel	      off
     }
     Block {
       BlockType		      Sum
@@ -1385,8 +1293,7 @@ Model {
   System {
     Name		    "modelGod"
     Location		    [380, 74, 1648, 918]
-    SystemRect		    [0.000000, 0.000000, 0.000000, 0.000000]
-    Open		    on
+    Open		    off
     PortBlocksUseCompactNotation off
     SetExecutionDomain	    off
     ExecutionDomainType	    "Deduce"
@@ -1417,7 +1324,6 @@ Model {
       System {
 	Name			"$K_{H}$"
 	Location		[106, 90, 1374, 934]
-	SystemRect		[0.000000, 0.000000, 0.000000, 0.000000]
 	Open			off
 	PortBlocksUseCompactNotation off
 	SetExecutionDomain	off
@@ -1465,7 +1371,6 @@ Model {
 	  Position		  [415, 190, 445, 220]
 	  ZOrder		  5
 	  BlockRotation		  270
-	  NameLocation		  "right"
 	}
 	Block {
 	  BlockType		  Sum
@@ -1537,7 +1442,6 @@ Model {
       System {
 	Name			"$K_{H}$1"
 	Location		[257, 182, 1525, 1026]
-	SystemRect		[0.000000, 0.000000, 0.000000, 0.000000]
 	Open			off
 	PortBlocksUseCompactNotation off
 	SetExecutionDomain	off
@@ -1585,7 +1489,6 @@ Model {
 	  Position		  [415, 190, 445, 220]
 	  ZOrder		  5
 	  BlockRotation		  270
-	  NameLocation		  "right"
 	}
 	Block {
 	  BlockType		  Sum
@@ -1818,7 +1721,7 @@ Model {
       BlockRotation	      270
       BlockMirror	      on
       BackgroundColor	      "magenta"
-      NameLocation	      "left"
+      NamePlacement	      "alternate"
       Commented		      "on"
       UpperLimit	      "9*pi/180"
       LowerLimit	      "-9*pi/180"
@@ -1943,8 +1846,7 @@ Model {
       System {
 	Name			"StateSpace"
 	Location		[106, 90, 1374, 934]
-	SystemRect		[0.000000, 0.000000, 0.000000, 0.000000]
-	Open			on
+	Open			off
 	PortBlocksUseCompactNotation off
 	SetExecutionDomain	off
 	ExecutionDomainType	"Deduce"
@@ -1968,7 +1870,7 @@ Model {
 	  ZOrder		  3
 	  BlockRotation		  270
 	  BlockMirror		  on
-	  NameLocation		  "left"
+	  NamePlacement		  "alternate"
 	}
 	Block {
 	  BlockType		  Gain
@@ -1978,7 +1880,7 @@ Model {
 	  ZOrder		  4
 	  BlockRotation		  270
 	  BlockMirror		  on
-	  NameLocation		  "left"
+	  NamePlacement		  "alternate"
 	  Gain			  "B"
 	  Multiplication	  "Matrix(K*u)"
 	}
@@ -1989,7 +1891,7 @@ Model {
 	  Position		  [350, 215, 380, 245]
 	  ZOrder		  8
 	  BlockMirror		  on
-	  NameLocation		  "top"
+	  NamePlacement		  "alternate"
 	  Gain			  "A"
 	  Multiplication	  "Matrix(K*u)"
 	}
@@ -2008,7 +1910,7 @@ Model {
 	  SID			  "60"
 	  Position		  [375, 130, 405, 160]
 	  ZOrder		  13
-	  NameLocation		  "top"
+	  NamePlacement		  "alternate"
 	  Gain			  "D"
 	  Multiplication	  "Matrix(K*u)"
 	}
