@@ -7,7 +7,7 @@ S=360;
 ba=14.5;
 mass=180000;
 Jz=7.7*10^6;
-X_Tzv=0.25;
+X_Tzv=0.46;
 
 [A,B,C,D]=StateSpace(2,11000);
 diffura=ss(A,B,C,D);

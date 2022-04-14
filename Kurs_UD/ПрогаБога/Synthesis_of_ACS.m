@@ -45,5 +45,5 @@ function [W_raz,K_v,K_wz,K_H,i_p,i_H]=Synthesis_of_ACS(mah,height,w0_max)
     W_v=feedback(W_raz,1);
     W_wzZAM = feedback(tf(diffura(2))*Drive,K_wz,-1);
     W_raz=W_v*K_H*(1/(1/Ya_Alpha*p+1))*(i_H+1/p*i_p);
-    i_p=0.2*i_H^2*V;
+    i_p=i_H^2*V;
 end 
