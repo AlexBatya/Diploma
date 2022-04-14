@@ -13,8 +13,9 @@ function [W_raz,K_v,K_wz,K_H,i_p,i_H]=Synthesis_of_ACS(mah,height,w0_max)
     K_wz=e*K_wzGr;
     K_v=nu*K_wz;
     K_H=V;
+    i_p=0.003;
     W_wzZAM = feedback(tf(diffura(2))*Drive,K_wz);
-        W_raz = 1/p*W_wzZAM*K_v;
+    W_raz = 1/p*W_wzZAM*K_v;
 
     answer=false;
     while(~answer)
@@ -34,15 +35,14 @@ function [W_raz,K_v,K_wz,K_H,i_p,i_H]=Synthesis_of_ACS(mah,height,w0_max)
         if and(ksi<1,ksi>0.6) | ksi<0.6
             K_wz=e*K_wzGr;
             K_v=nu*K_wz;
-            [w,ksi,a] = damp(W_raz);
-            W_v=feedback(W_raz,1);
-            margin(W_v);
             answer=true;
         end
     end
     i_H=0.8/(1/Ya_Alpha*V);
-    W_hRAZ=W_v*K_H*(1/(1/Ya_Alpha*p+1))*i_H;
-    % W_hRAZ=diffura(3)*i_H;
-    margin(W_hRAZ);
-    i_p=1;
+
+    Wwz_raz = 1/p*W_wzZAM*K_v;
+    W_v=feedback(W_raz,1);
+    W_wzZAM = feedback(tf(diffura(2))*Drive,K_wz,-1);
+    W_raz=W_v*K_H*(1/(1/Ya_Alpha*p+1))*(i_H+1/p*i_p);
+    i_p=0.2*i_H^2*V;
 end 

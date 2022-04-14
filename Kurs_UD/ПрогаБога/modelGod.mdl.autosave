@@ -84,23 +84,23 @@ Model {
 	  $ObjectID		  6
 	  IsActive		  [1]
 	  IsTabbed		  [1]
+	  ViewObjType		  "SimulinkTopLevel"
+	  LoadSaveID		  "0"
+	  Extents		  [606.0, 592.0]
+	  ZoomFactor		  [1.0]
+	  Offset		  [-207.484375, 507.07543533025932]
+	  SceneRectInView	  [-207.484375, 507.07543533025932, 606.0, 592.0]
+	}
+	Object {
+	  $ObjectID		  7
+	  IsActive		  [0]
+	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "80"
 	  Extents		  [606.0, 592.0]
 	  ZoomFactor		  [1.0]
 	  Offset		  [138.60201439092233, -106.5]
 	  SceneRectInView	  [138.60201439092233, -106.5, 606.0, 592.0]
-	}
-	Object {
-	  $ObjectID		  7
-	  IsActive		  [0]
-	  IsTabbed		  [0]
-	  ViewObjType		  "SimulinkTopLevel"
-	  LoadSaveID		  "0"
-	  Extents		  [606.0, 592.0]
-	  ZoomFactor		  [0.8]
-	  Offset		  [-3.75, 505.490099431316]
-	  SceneRectInView	  [-3.75, 505.490099431316, 757.5, 740.0]
 	}
 	Object {
 	  $ObjectID		  8
@@ -222,7 +222,7 @@ Model {
 	Dimension		0
 	PropName		"PersistedApps"
       }
-      WindowUuid	      "905bab86-07f7-4bbe-b7df-576a94890d82"
+      WindowUuid	      "9cc987f9-2e67-4c50-96ad-08c44979366d"
     }
     BDUuid		    "1f41ee4d-4714-446f-b281-131f478c2509"
   }
@@ -234,7 +234,7 @@ Model {
   LastModifiedBy	  "aleksejpasenko"
   ModifiedDateFormat	  "%<Auto>"
   LastModifiedDate	  "Thu Apr 14 10:55:18 2022"
-  RTWModifiedTimeStamp	  571834516
+  RTWModifiedTimeStamp	  571834569
   ModelVersionFormat	  "1.%<AutoIncrement:2>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -1155,6 +1155,19 @@ Model {
   }
   BlockParameterDefaults {
     Block {
+      BlockType		      Constant
+      Value		      "1"
+      VectorParams1D	      on
+      SamplingMode	      "Sample based"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Inherit from 'Constant value'"
+      LockScale		      off
+      SampleTime	      "inf"
+      FramePeriod	      "inf"
+      PreserveConstantTs      off
+    }
+    Block {
       BlockType		      Demux
       Outputs		      "4"
       DisplayOption	      "none"
@@ -1342,7 +1355,7 @@ Model {
   System {
     Name		    "modelGod"
     Location		    [720, 23, 1440, 844]
-    Open		    off
+    Open		    on
     PortBlocksUseCompactNotation off
     SetExecutionDomain	    off
     ExecutionDomainType	    "Deduce"
@@ -1356,9 +1369,9 @@ Model {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "80"
+    ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "283"
+    SIDHighWatermark	    "285"
     SimulinkSubDomain	    "Simulink"
     Block {
       BlockType		      SubSystem
@@ -1373,7 +1386,7 @@ Model {
       System {
 	Name			"$K_{H}$"
 	Location		[720, 23, 1440, 844]
-	Open			on
+	Open			off
 	PortBlocksUseCompactNotation off
 	SetExecutionDomain	off
 	ExecutionDomainType	"Deduce"
@@ -1691,7 +1704,7 @@ Model {
       BlockType		      Step
       Name		      "$\\Delta H$1"
       SID		      "126"
-      Position		      [-135, 635, -105, 665]
+      Position		      [-135, 700, -105, 730]
       ZOrder		      67
       BackgroundColor	      "red"
       SampleTime	      "0"
@@ -1731,6 +1744,13 @@ Model {
 	  PropName		  "LinearAnalysisIO"
 	}
       }
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Constant"
+      SID		      "285"
+      Position		      [-135, 635, -105, 665]
+      ZOrder		      97
     }
     Block {
       BlockType		      Demux
@@ -1855,14 +1875,14 @@ Model {
       ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg('CurrentConfiguration', extmgr.ConfigurationSet(extm"
       "gr.Configuration('Core','General UI',true),extmgr.Configuration('Core','Source UI',true),extmgr.Configuration('S"
       "ources','WiredSimulink',true,'DataLoggingVariableName','ScopeData1'),extmgr.Configuration('Visuals','Time Domain"
-      "',true,'SerializedDisplays',{struct('MinYLimReal','-0.04122','MaxYLimReal','0.37094','YLabelReal','','MinYLimMag"
-      "','0.00000','MaxYLimMag','0.37094','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'Axes"
+      "',true,'SerializedDisplays',{struct('MinYLimReal','-0.12489','MaxYLimReal','1.12398','YLabelReal','','MinYLimMag"
+      "','0.00000','MaxYLimMag','1.12398','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'Axes"
       "Color',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.06666"
       "66666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.8313"
       "72549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686"
       " 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines"
       "',1,'LineNames',{{'Demux1/3'}},'ShowContent',true,'Placement',1)},'DisplayPropertyDefaults',struct('MinYLimReal'"
-      ",'-0.04122','MaxYLimReal','0.37094','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','0.37094','LegendVisibil"
+      ",'-0.12489','MaxYLimReal','1.12398','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','1.12398','LegendVisibil"
       "ity','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922"
       " 0.686274509803922 0.686274509803922],'ColorOrder',[0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0"
       ".16078431372549;1 1 0.0666666666666667;0.717647058823529 0.274509803921569 1;0.392156862745098 0.831372549019608"
@@ -2363,8 +2383,8 @@ Model {
       DstPort		      1
     }
     Line {
-      ZOrder		      369
-      SrcBlock		      "$\\Delta H$1"
+      ZOrder		      624
+      SrcBlock		      "Constant"
       SrcPort		      1
       DstBlock		      "Sum8"
       DstPort		      1
