@@ -9,7 +9,7 @@ mass=180000;
 Jz=7.7*10^6;
 X_Tzv=0.45;
 
-mah=2;
+mah=1;
 height=11000;
 
 [A,B,C,D]=StateSpace(mah,height);
@@ -18,7 +18,7 @@ diffura.StateName = {'Alpha', 'wz', 'Vy'};
 diffura.OutputName = {'Alpha', 'wz', 'Vy'};
 diffura.inputname = {'deltaB'}; 
 
-h_h=50;
+h_h=2000;
 H=Hob(1):h_h:Hob(end);
 
 M_min=interp1(Hob,M_min',H)';
@@ -28,20 +28,25 @@ M1=[M_min M_max];
 
 
 for i=1:n 
-    M6 = linspace(M1(i,1),M1(i,end),1000);
+    M6 = linspace(M1(i,1),M1(i,end),10);
     M5(i,:)=M6;
 end
-[Mz_wz, Mz_Alpha, Ya_Alpha Mz_deltaB V] = AllCalculations(M5,H);
-% Mz_wz=max(Mz_wz);
-% Mz_wz=max(Mz_wz);
-Mz_Alpha=min(Mz_Alpha);
-Mz_Alpha=min(Mz_Alpha);
-% Ya_Alpha=max(Ya_Alpha);
-% Ya_Alpha=max(Ya_Alpha);
 
 [Drive,w]=DriveParameters(M5,H);
+% [Mz_wz, Mz_Alpha, Ya_Alpha Mz_deltaB V] = AllCalculations(mah,height);
+% [W_raz,K_v,K_wz,K_H,i_p,i_H]=Synthesis_of_ACS(mah,height,w);
+% K_v
+% K_wz
+% Ya_Alpha
 
-[W_raz,K_v,K_wz,K_H,i_p,i_H]=Synthesis_of_ACS(mah,height,w)
-% W_zam=feedback(W_raz,1);
+[n,m]=size(M5);
+for i=1:n
+    for j=1:m
+    [W_raz,K_v(i,j),K_wz(i,j),K_H,i_p,i_H]=Synthesis_of_ACS(M5(i,j),H(i),w);
+    end
+end
+% K_v
+% K_wz
+% W=feedback(W_raz,1);
 
 
