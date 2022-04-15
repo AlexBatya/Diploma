@@ -33,11 +33,10 @@ for i=1:n
 end
 
 [Drive,w]=DriveParameters(M5,H);
-% [Mz_wz, Mz_Alpha, Ya_Alpha Mz_deltaB V] = AllCalculations(mah,height);
+[Mz_wz, Mz_Alpha, Ya_Alpha Mz_deltaB V] = AllCalculations(M5,H);  
 % [W_raz,K_v,K_wz,K_H,i_p,i_H]=Synthesis_of_ACS(mah,height,w);
 % K_v
 % K_wz
-% Ya_Alpha
 
 [n,m]=size(M5);
 for i=1:n
