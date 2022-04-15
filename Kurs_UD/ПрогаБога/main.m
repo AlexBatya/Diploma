@@ -10,7 +10,7 @@ Jz=7.7*10^6;
 X_Tzv=0.45;
 
 mah=2;
-height=18000;
+height=11000;
 
 [A,B,C,D]=StateSpace(mah,height);
 diffura=ss(A,B,C,D);
