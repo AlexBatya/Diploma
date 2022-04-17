@@ -1,5 +1,5 @@
 function [W_raz,K_v,K_wz,K_H,i_p,i_H]=Synthesis_of_ACS(mah,height,w0_max)
-    [Mz_wz, Mz_Alpha, Ya_Alpha Mz_deltaB V] = AllCalculations(mah,height);
+    [Mz_wz, Mz_Alpha, Ya_Alpha Mz_deltaB V q] = AllCalculations(mah,height);
     [Drive]= DriveParameters(mah,height);
     [A,B,C,D] = StateSpace(mah,height);
     diffura=ss(A,B,C,D);
@@ -21,7 +21,7 @@ function [W_raz,K_v,K_wz,K_H,i_p,i_H]=Synthesis_of_ACS(mah,height,w0_max)
         else
             nu=nu-0.01;
         end
-        if(abs(nu-Ya_Alpha)<=0.02)
+        if(abs(nu-Ya_Alpha)<=0.2)
             K_v=nu*K_wz;
             answer=true;
         end
