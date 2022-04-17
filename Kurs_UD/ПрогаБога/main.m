@@ -7,12 +7,12 @@ S=360;
 ba=14.5;
 mass=180000;
 Jz=7.7*10^6;
-X_Tzv=0.45;
+X_Tzv=0.25;
 
 mah=2;
-height=18000;
-number=5;
-h_h=3000;
+height=11000;
+number=10000;
+h_h=50;
 
 
 [A,B,C,D]=StateSpace(mah,height);
