@@ -1,6 +1,7 @@
 clear
 global aa mass pa S ba Jz mz_wz1 Cy_Alpha1 X_Tzv X_Fe1 X_T X_F1 Cy_AlphaE1 M11 Ha
 load('Area_of_possible_flights.mat');
+% load('Area_of_possible_flights2.mat');
 load('Aerodynamics.mat');
 load('AtmosphereStandard.mat');
 S=360;
@@ -10,9 +11,9 @@ Jz=7.7*10^6;
 X_Tzv=0.25;
 
 mah=2;
-height=11000;
-number=10000;
-h_h=50;
+height=18000;
+number=10;
+h_h=3000;
 
 
 [A,B,C,D]=StateSpace(mah,height);
@@ -33,19 +34,21 @@ for i=1:n
     M6 = linspace(M1(i,1),M1(i,end),number);
     M5(i,:)=M6;
 end
+% writematrix(M5,'M.xls')
 
 [Drive,w]=DriveParameters(M5,H);
 [Mz_wz, Mz_Alpha, Ya_Alpha Mz_deltaB V q] = AllCalculations(M5,H);  
-[W_raz,K_v,K_wz,K_H,i_p,i_H]=Synthesis_of_ACS(mah,height,w)
+writematrix(Mz_Alpha,'Mz_Alpha.xls')
+% [W_raz,K_v,K_wz,K_H,i_p,i_H]=Synthesis_of_ACS(mah,height,w)
 % K_v
 % K_wz
 
-% [n,m]=size(M5);
-% for i=1:n
-%     for j=1:m
-%     [W_raz,K_v(i,j),K_wz(i,j),K_H,i_p,i_H]=Synthesis_of_ACS(M5(i,j),H(i),w);
-%     end
-% end
+[n,m]=size(M5);
+for i=1:n
+    for j=1:m
+    [W_raz,K_v(i,j),K_wz(i,j),K_H,i_p,i_H]=Synthesis_of_ACS(M5(i,j),H(i),w);
+    end
+end
 % K_v
 % K_wz
 % W=feedback(W_raz,1);

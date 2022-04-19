@@ -13,10 +13,10 @@ CeOH=0.042;
 method='linear';
 
 H1=[0 3000 6000 9000 11000];
-load('DataAfterburnerTRDF.mat');
+% load('DataAfterburnerTRDF.mat');
 load('AtmosphereStandard.mat');
 load('Aerodynamics.mat');
-% load('Data_Without_AfterburnerTRDF.mat');
+load('Data_Without_AfterburnerTRDF.mat');
 
 M_H=0.03;
 M_K=3;
@@ -28,7 +28,7 @@ for i=1:n_m
 end
 
 H_H=0;
-H_K=27000;
+H_K=20000;
 h_h=1000;
 n_h=abs(H_H-H_K)/h_h+1;
 for i=1:n_h
@@ -99,7 +99,7 @@ end
 
 
 Vy_max=max(Vy',[],2);
-M_maxq
+M_maxq;
 
 % QKM_min=min(q_km',[],2);
 % QCHAS_min=min(q_chas',[],2);
