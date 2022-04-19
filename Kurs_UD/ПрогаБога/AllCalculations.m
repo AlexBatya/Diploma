@@ -1,4 +1,4 @@
-function [Mz_wz, Mz_Alpha, Ya_Alpha Mz_deltaB V q] = AllCalculations(mah,height)
+function [Mz_wz, Mz_Alpha, Ya_Alpha Mz_deltaB V q sigma_n] = AllCalculations(mah,height)
     global aa mass pa S ba Jz mz_wz1 Cy_Alpha1 X_Tzv X_Fe1 X_T X_F1 Cy_AlphaE1 M11 Ha
     method='spline';
     a=interp1(Ha,aa,height,method);
@@ -7,7 +7,8 @@ function [Mz_wz, Mz_Alpha, Ya_Alpha Mz_deltaB V q] = AllCalculations(mah,height)
     Cy_Alpha=interp1(M11,Cy_Alpha1,mah,method);    
     X_F=interp1(M11,X_F1,mah,method);
     X_Fe=interp1(M11,X_Fe1,mah,method);
-    Cy_AlphaE=interp1(M11,Cy_AlphaE1,mah,method); 
+    Cy_AlphaE=interp1(M11,Cy_AlphaE1,mah,method);
+    [T,aq,aw,ro] = atmosisa(height) ; %только до 20км
 
 
     q=0.7.*mah.^2.*p';
@@ -19,4 +20,6 @@ function [Mz_wz, Mz_Alpha, Ya_Alpha Mz_deltaB V q] = AllCalculations(mah,height)
     Mz_wz=mz_Wz.*q.*S.*ba./Jz;
     Mz_Alpha=mz_Alpha.*q.*S.*ba./Jz;
     Mz_deltaB=mz_deltaB.*q.*S.*ba./Jz;
+    mu=2*mass./(ro'*S*ba);
+    sigma_n=(X_Tzv-X_F) + mz_wz./mu;
 end

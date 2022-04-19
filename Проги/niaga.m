@@ -13,10 +13,10 @@ CeOH=0.042;
 method='linear';
 
 H1=[0 3000 6000 9000 11000];
-% load('DataAfterburnerTRDF.mat');
+load('DataAfterburnerTRDF.mat');
 load('AtmosphereStandard.mat');
 load('Aerodynamics.mat');
-load('Data_Without_AfterburnerTRDF.mat');
+% load('Data_Without_AfterburnerTRDF.mat');
 
 M_H=0.03;
 M_K=3;
@@ -28,7 +28,7 @@ for i=1:n_m
 end
 
 H_H=0;
-H_K=20000;
+H_K=28000;
 h_h=1000;
 n_h=abs(H_H-H_K)/h_h+1;
 for i=1:n_h
@@ -70,29 +70,29 @@ for j=1:length(H)
             P_tilda(i,j)=interp2(H1,M1,P1',H(j),M(i),method);
             P_rasp(i,j)=P_tilda(i,j)*m*g*P_0;
         end
-%         R(i,j)=P_pot(i,j)/P_rasp(i,j);
-%         if H(j)==11000
-%             Ce_isk(i,j)=interp2(H1,M1,Ce1',11000,M(i),method);
-%             Cedros(i,j)=interp1(R1, Cedros1, R(i,j), method, 'extrap');
-%             CE(i,j)=Ce_isk(i,j)*Cedros(i,j);
-%             CE11(i)=CE(i,j);
-%         end
+        R(i,j)=P_pot(i,j)/P_rasp(i,j);
+        if H(j)==11000
+            Ce_isk(i,j)=interp2(H1,M1,Ce1',11000,M(i),method);
+            Cedros(i,j)=interp1(R1, Cedros1, R(i,j), method, 'extrap');
+            CE(i,j)=Ce_isk(i,j)*Cedros(i,j);
+            CE11(i)=CE(i,j);
+        end
         
-%         if H(j)>=11000
-%             CE(i,j)=CE11(i);
+        if H(j)>=11000
+            CE(i,j)=CE11(i);
 
-%         else
-%             Ce_isk(i,j)=interp2(H1,M1,Ce1',H(j),M(i),method);
-%             Cedros(i,j)=interp1(R1, Cedros1, R(i,j), method, 'extrap');
-%             CE(i,j)=Ce_isk(i,j)*Cedros(i,j);
-%         end   
+        else
+            Ce_isk(i,j)=interp2(H1,M1,Ce1',H(j),M(i),method);
+            Cedros(i,j)=interp1(R1, Cedros1, R(i,j), method, 'extrap');
+            CE(i,j)=Ce_isk(i,j)*Cedros(i,j);
+        end   
         nx(i,j)=(P_rasp(i,j)-P_pot(i,j))/(k*m*g);
         Vy(i,j)=nx(i,j)*V(i,j);
 % %         if Vy(i,j)<0
 % %             Vy(i,j)=0;
 % %         end
-%         q_chas(i,j)=CE(i,j)*P_pot(i,j);
-%         q_km(i,j)=q_chas(i,j)/(3.6*V(i,j));
+        q_chas(i,j)=CE(i,j)*P_pot(i,j);
+        q_km(i,j)=q_chas(i,j)/(3.6*V(i,j));
     end
 end
 
@@ -101,8 +101,8 @@ end
 Vy_max=max(Vy',[],2);
 M_maxq;
 
-% QKM_min=min(q_km',[],2);
-% QCHAS_min=min(q_chas',[],2);
+QKM_min=min(q_km',[],2);
+QCHAS_min=min(q_chas',[],2);
 % P_potmin=min(P_pot',[],2);
 
 
@@ -142,7 +142,7 @@ M_maxq;
 %      
 
 l=1;
-H_string=string(H)
+H_string=string(H);
 for i=1:length(H)
     figure
     % legend(H_string)
