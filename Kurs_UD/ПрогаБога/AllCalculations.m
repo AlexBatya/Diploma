@@ -6,8 +6,8 @@ function [Mz_wz, Mz_Alpha, Ya_Alpha Mz_deltaB V q sigma_n] = AllCalculations(mah
     mz_wz=interp1(M11,mz_wz1,mah,method);    
     Cy_Alpha=interp1(M11,Cy_Alpha1,mah,method);    
     X_F=interp1(M11,X_F1,mah,method);
-    X_Fe=interp1(M11,X_Fe1,mah,method);
-    Cy_AlphaE=interp1(M11,Cy_AlphaE1,mah,method);
+    X_Fe=0.5*interp1(M11,X_Fe1,mah,method);
+    Cy_AlphaE=10*interp1(M11,Cy_AlphaE1,mah,method);
     [T,aq,aw,ro] = atmosisa(height) ; %только до 20км
 
 

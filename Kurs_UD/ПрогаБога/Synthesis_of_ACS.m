@@ -7,7 +7,7 @@ function [W_raz,K_v,K_wz,K_H,i_p,i_H]=Synthesis_of_ACS(mah,height,w0_max)
 
     
     e=0.25;
-    K_wzGr=1/abs(0.02*Mz_deltaB);
+    K_wzGr=1/abs(Mz_deltaB)/0.025;
     nu=w0_max;
     K_wz=e*K_wzGr;
     K_v=nu*K_wz;

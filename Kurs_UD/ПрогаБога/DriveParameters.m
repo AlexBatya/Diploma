@@ -3,7 +3,6 @@ function [W_drive,w] = DriveParameters(mah,height)
 
     ksi=0.5;
     w=sqrt(-Mz_wz.*Ya_Alpha-Mz_Alpha);
-    % writematrix(w,'omega.xls');
     
     w1=max(w);
     w=max(w1);
