@@ -33,7 +33,8 @@ function [W_raz,K_v,K_wz,K_H,i_p,i_H]=Synthesis_of_ACS(mah,height,w0_max)
     W_raz = Wv_zam1 * K_H/(p/Ya_Alpha+1);
     [w2 a1 a2] = damp(W_raz);
     T=1/w2(4);
+    % i_H = 0.8/(1/Ya_Alpha*V);
     i_H=0.25/abs(T*V);
-    i_p=0.2*i_H^2*V;
+    i_p=0.15*i_H^2*V;
     W_raz = Wv_zam1 * K_H/(p/Ya_Alpha+1) *(i_H);
 end 
