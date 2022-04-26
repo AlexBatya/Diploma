@@ -27,9 +27,13 @@ function [W_raz,K_v,K_wz,K_H,i_p,i_H]=Synthesis_of_ACS(mah,height,w0_max)
         end
     end
 
-    i_H=0.8/(1/Ya_Alpha*V);
-    W_wzZAM = feedback(tf(diffura(2))*Drive,K_wz,-1);
-    W_v=feedback(W_wzZAM,1,-1);
-    i_p=i_H^2*V;
-    W_raz=W_v*K_H*(1/(1/Ya_Alpha*p+1))*(i_H+i_p*1/p);
+    Wwz_zam1 = feedback(Drive* tf(diffura(2)),-K_wz);
+    Wv_raz1 = Wwz_zam1* 1/p * -K_v;
+    Wv_zam1 = feedback(Wv_raz1,1);
+    W_raz = Wv_zam1 * K_H/(p/Ya_Alpha+1);
+    [w2 a1 a2] = damp(W_raz);
+    T=1/w2(4);
+    i_H=0.25/abs(T*V);
+    i_p=0.2*i_H^2*V;
+    W_raz = Wv_zam1 * K_H/(p/Ya_Alpha+1) *(i_H);
 end 
