@@ -12,8 +12,8 @@ X_Tzv=0.25;
 
 mah=0.7521;
 height=12000;
-number=10;
-h_h=2000;
+number=10000;
+h_h=50;
 
 
 [A,B,C,D]=StateSpace(mah,height);
@@ -39,63 +39,68 @@ end
 
 
 [Drive,w]=DriveParameters(M5,H);
+% [Mz_wz, Mz_Alpha, Ya_Alpha Mz_deltaB V q sigma_n] = AllCalculations(M5,H);  
 [Mz_wz, Mz_Alpha, Ya_Alpha Mz_deltaB V q sigma_n] = AllCalculations(mah,height);  
 [W_raz,K_v,K_wz,K_H,i_p,i_H]=Synthesis_of_ACS(mah,height,w)
 W_zam = feedback(W_raz,1);
 
-Wwz_raz1 = Drive * tf(diffura(2))* -K_wz ;%с САУ
-Wwz_raz2 = Drive * tf(diffura(2)); %без САУ
-Wwz_zam1 = feedback(Drive* tf(diffura(2)),-K_wz);
-Wwz_zam2 = feedback(Drive* tf(diffura(2)),1);
+% Wwz_raz1 = Drive * tf(diffura(2))* -K_wz ;%с САУ
+% Wwz_raz2 = Drive * tf(diffura(2)); %без САУ
+% Wwz_zam1 = feedback(Drive* tf(diffura(2)),-K_wz);
+% Wwz_zam2 = feedback(Drive* tf(diffura(2)),1);
 
-Wv_raz1 = Wwz_zam1* 1/p * -K_v;
-Wv_raz2 = Wwz_zam2 * 1/p;
-Wv_zam1 = feedback(Wv_raz1,1);
-Wv_zam2 = feedback(Wv_raz2,1);
+% Wv_raz1 = Wwz_zam1* 1/p * -K_v;
+% Wv_raz2 = Wwz_zam2 * 1/p;
+% Wv_zam1 = feedback(Wv_raz1,1);
+% Wv_zam2 = feedback(Wv_raz2,1);
 
-WVy_raz1 = Wv_zam1 * K_H/(p/Ya_Alpha+1) *(i_H+i_p/p);
-WVy_raz2 = Wv_zam2 *  K_H/(p/Ya_Alpha+1);
-WVy_zam1 = feedback(WVy_raz1,1);
-WVy_zam2 = feedback(WVy_raz2,1);
-% _____________________________________________________________
+% WVy_raz1 = Wv_zam1 * K_H/(p/Ya_Alpha+1) *(i_H);
+% WVy_raz2 = Wv_zam2 *  K_H/(p/Ya_Alpha+1);
+% WVy_zam1 = feedback(WVy_raz1,1);
+% WVy_zam2 = feedback(WVy_raz2,1);
+% % _____________________________________________________________
+% FreqName3qmax = 'img/ZAM qMAX.jpg';
+% FreqName3qmax = 'img/ZAM qMIN.jpg';
+% FreqName3qmax = 'img/ZAM qKR.jpg';
+
 % FreqName_Wwz_qmax='img/Угловая скорость тангажа раз qMAX.jpg';
 % FreqName_Wv_qmax='img/Тангаж раз qMAX.jpg';
 % FreqName_WVy_qmax='img/Вертикальная скорость раз qMAX.jpg';
 
-FreqName_Wwz_qmax='img/Угловая скорость тангажа раз qMIN.jpg';
-FreqName_Wv_qmax='img/Тангаж раз qMIN.jpg';
-FreqName_WVy_qmax='img/Вертикальная скорость раз qMIN.jpg';
+% FreqName_Wwz_qmax='img/Угловая скорость тангажа раз qMIN.jpg';
+% FreqName_Wv_qmax='img/Тангаж раз qMIN.jpg';
+% FreqName_WVy_qmax='img/Вертикальная скорость раз qMIN.jpg';
 
 % FreqName_Wwz_qmax='img/Угловая скорость тангажа раз qKR.jpg';
 % FreqName_Wv_qmax='img/Тангаж раз qKR.jpg';
 % FreqName_WVy_qmax='img/Вертикальная скорость раз qKR.jpg';
 %_______________________________________________________________
-A=figure;
-A.Position(3:4)=[3000,5000];
-subplot(1,3,1);
-bode(Wwz_zam1);
-title('Замкнутый контур стабилизации угловой скорости тангажа');
-grid;
+% A=figure;
+% A.Position(3:4)=[3000,5000];
+% subplot(1,3,1);
+% bode(Wwz_zam1);
+% title('Замкнутый контур стабилизации угловой скорости тангажа');
+% grid;
 
-subplot(1,3,2);
-bode(Wv_zam1);
-title('Замкнутый контур стабилизации тангажа')
-grid;
+% subplot(1,3,2);
+% bode(Wv_zam1);
+% title('Замкнутый контур стабилизации тангажа')
+% grid;
 
-subplot(1,3,3);
-bode(WVy_zam1);
-title('Замкнутый контур стабилизации вертикальной скорости')
-grid;
-saveas(A,'img/ЛАФЧХ замкнутого контура.jpg');
+% subplot(1,3,3);
+% bode(WVy_zam1);
+% title('Замкнутый контур стабилизации вертикальной скорости')
+% grid;
+% saveas(A,FreqName3qmax);
 
-print2(FreqName_Wwz_qmax,Wwz_raz1,Wwz_raz2,'Разомкнутый контур стабилизации угловой скорости тангажа',...
-'Разомкнутый контур стабилизации угловой скорости тангажа без САУ')
+% print2(FreqName_Wwz_qmax,Wwz_raz1,Wwz_raz2,'Разомкнутый контур стабилизации угловой скорости тангажа',...
+% 'Разомкнутый контур стабилизации угловой скорости тангажа без САУ')
 
-print2(FreqName_Wv_qmax,Wv_raz1,Wv_raz2,'Разомкнутый контур стабилизации тангажа',...
-'Разомкнутый контур стабилизации тангажа без САУ')
+% print2(FreqName_Wv_qmax,Wv_raz1,Wv_raz2,'Разомкнутый контур стабилизации тангажа',...
+% 'Разомкнутый контур стабилизации тангажа без САУ')
 
-print2(FreqName_WVy_qmax,WVy_raz1,WVy_raz2,'Разомкнутый контур стабилизации вертикальной скорости',...
-'Разомкнутый контур стабилизации вертикальной скорости без САУ')
+% print2(FreqName_WVy_qmax,WVy_raz1,WVy_raz2,'Разомкнутый контур стабилизации вертикальной скорости',...
+% 'Разомкнутый контур стабилизации вертикальной скорости без САУ')
 
 
 
