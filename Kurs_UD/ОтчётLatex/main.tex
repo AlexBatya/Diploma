@@ -1,0 +1,39 @@
+\documentclass[a4paper,12pt]{article} 
+\usepackage[T2A]{fontenc} %кодировка  
+\usepackage[utf8]{inputenc} %Кодировка исходного текста  
+\usepackage[english,russian]{babel} %локализация и переносы  
+% \usepackage[utf8]{inputenc} 
+% \usepackage[russian]{babel} 
+\usepackage{indentfirst} 
+\usepackage{float} 
+\usepackage{geometry} 
+\usepackage[warn]{mathtext} 
+\usepackage[english,russian]{babel} 
+\usepackage{amsmath}
+\setlength{\parindent}{12.5mm}
+% \setlength{\parskip}{1em}
+\linespread{1.5} % по умолчанию 1.0
+% \usepackage{gensymb} %% Чтоб градусы работали 
+\geometry{a4paper,total={170mm,257mm},left=30mm,top=20mm,right=10mm} 
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools} %Математика 
+ 
+\begin{document} % начало документа
+
+\input{Sactions/title} % Титульник
+\input{Sactions/taskOfKP} %Задание на КР
+\input{Sactions/report} %Реферат
+\input{Sactions/Content}
+\input{Sactions/ReductionV}
+% \input{Sactions/GeneralInformation}
+\input{Sactions/introduction}   
+\newpage
+\begin{figure}[H]
+    \center{\includegraphics[width=\linewidth]{img/Concorde.jpg}}
+    \caption{Concorde}
+    \label{fig:Concorde}
+\end{figure}
+
+\input{Sactions/Сontent/mainCont}
+\input{Sactions/literature}
+
+\end{document}  % КОНЕЦ ДОКУМЕНТА !
