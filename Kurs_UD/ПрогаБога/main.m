@@ -41,8 +41,8 @@ end
 [Drive,w]=DriveParameters(M5,H);
 % [Mz_wz, Mz_Alpha, Ya_Alpha Mz_deltaB V q sigma_n] = AllCalculations(M5,H);  
 [Mz_wz, Mz_Alpha, Ya_Alpha Mz_deltaB V q sigma_n] = AllCalculations(mah,height);  
-[W_raz,K_v,K_wz,K_H,i_p,i_H]=Synthesis_of_ACS(mah,height,w)
-% W_zam = feedback(W_raz,1);
+[W_raz,K_v,K_wz,K_H,Kp,Ki]=Synthesis_of_ACS(mah,height,w)
+W_zam = feedback(W_raz,1);
 
 % Wwz_raz1 = Drive * tf(diffura(2))* -K_wz ;%с САУ
 % Wwz_raz2 = Drive * tf(diffura(2)); %без САУ

@@ -1,4 +1,4 @@
-function [W_raz,K_v,K_wz,K_H,i_p,i_H]=Synthesis_of_ACS(mah,height,w0_max)
+function [W_raz,K_v,K_wz,K_H,Kp,Ki]=Synthesis_of_ACS(mah,height,w0_max)
     [Mz_wz, Mz_Alpha, Ya_Alpha Mz_deltaB V q sigma_n] = AllCalculations(mah,height);
     [Drive]= DriveParameters(mah,height);
     [A,B,C,D] = StateSpace(mah,height);
@@ -31,10 +31,12 @@ function [W_raz,K_v,K_wz,K_H,i_p,i_H]=Synthesis_of_ACS(mah,height,w0_max)
     Wv_raz1 = Wwz_zam1* 1/p * -K_v;
     Wv_zam1 = feedback(Wv_raz1,1);
     W_raz = Wv_zam1 * K_H/(p/Ya_Alpha+1);
+
     [w2 a1 a2] = damp(W_raz);
-    T=1/w2(4);
-    % i_H = 0.8/(1/Ya_Alpha*V);
-    i_H=0.25/abs(T*V);
-    i_p=0.15*i_H^2*V;
-    W_raz = Wv_zam1 * K_H/(p/Ya_Alpha+1) *(i_H);
+    tau1=1/w2(2);
+    tau2 = 1/w2(3);
+    Ki = 0.25*1/(K_H*tau2);
+    Kp = Ki * tau1;
+
+    W_raz = Wv_zam1 * K_H/(p/Ya_Alpha+1) *(1/p*Ki+Kp);
 end 
