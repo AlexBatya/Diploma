@@ -101,7 +101,7 @@ end
 Vy_max=max(Vy',[],2);
 M_maxq;
 
-QKM_min=min(q_km',[],2);
+QKM_min=min(q_km',[],2)
 QCHAS_min=min(q_chas',[],2);
 % P_potmin=min(P_pot',[],2);
 
@@ -141,14 +141,14 @@ QCHAS_min=min(q_chas',[],2);
 % % grid minor
 %      
 
-l=1;
-H_string=string(H);
-for i=1:length(H)
-    figure
-    % legend(H_string)
-    plot(M,Cy(:,i),M,Cydop)
-    grid minor
-end
+% l=1;
+% H_string=string(H);
+% for i=1:length(H)
+%     figure
+%     % legend(H_string)
+%     plot(M,Cy(:,i),M,Cydop)
+%     grid minor
+% end
 % figure
 % plot(M,Cydop,M,Cy(:,l))
 % grid minor

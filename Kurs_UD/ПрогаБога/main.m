@@ -10,7 +10,7 @@ mass=180000;
 Jz=7.7*10^6;
 X_Tzv=0.25;
 
-mah=0.7521;
+mah=0.7251;
 height=12000;
 number=10000;
 h_h=50;
@@ -44,20 +44,20 @@ end
 [W_raz,K_v,K_wz,K_H,Kp,Ki]=Synthesis_of_ACS(mah,height,w)
 W_zam = feedback(W_raz,1);
 
-% Wwz_raz1 = Drive * tf(diffura(2))* -K_wz ;%с САУ
-% Wwz_raz2 = Drive * tf(diffura(2)); %без САУ
-% Wwz_zam1 = feedback(Drive* tf(diffura(2)),-K_wz);
-% Wwz_zam2 = feedback(Drive* tf(diffura(2)),1);
+Wwz_raz1 = Drive * tf(diffura(2))* -K_wz ;%с САУ
+Wwz_raz2 = Drive * tf(diffura(2)); %без САУ
+Wwz_zam1 = feedback(Drive* tf(diffura(2)),-K_wz);
+Wwz_zam2 = feedback(Drive* tf(diffura(2)),1);
 
-% Wv_raz1 = Wwz_zam1* 1/p * -K_v;
-% Wv_raz2 = Wwz_zam2 * 1/p;
-% Wv_zam1 = feedback(Wv_raz1,1);
-% Wv_zam2 = feedback(Wv_raz2,1);
+Wv_raz1 = Wwz_zam1* 1/p * -K_v;
+Wv_raz2 = Wwz_zam2 * 1/p;
+Wv_zam1 = feedback(Wv_raz1,1);
+Wv_zam2 = feedback(Wv_raz2,1);
 
-% WVy_raz1 = Wv_zam1 * K_H/(p/Ya_Alpha+1) *(i_H);
-% WVy_raz2 = Wv_zam2 *  K_H/(p/Ya_Alpha+1);
-% WVy_zam1 = feedback(WVy_raz1,1);
-% WVy_zam2 = feedback(WVy_raz2,1);
+WVy_raz1 = Wv_zam1 * K_H/(p/Ya_Alpha+1) *(Kp+1/p*Ki);
+WVy_raz2 = Wv_zam2 *  K_H/(p/Ya_Alpha+1);
+WVy_zam1 = feedback(WVy_raz1,1);
+WVy_zam2 = feedback(WVy_raz2,1);
 % % _____________________________________________________________
 % FreqName3qmax = 'img/ZAM qMAX.jpg';
 % FreqName3qmax = 'img/ZAM qMIN.jpg';
@@ -74,7 +74,7 @@ W_zam = feedback(W_raz,1);
 % FreqName_Wwz_qmax='img/Угловая скорость тангажа раз qKR.jpg';
 % FreqName_Wv_qmax='img/Тангаж раз qKR.jpg';
 % FreqName_WVy_qmax='img/Вертикальная скорость раз qKR.jpg';
-%_______________________________________________________________
+% %_______________________________________________________________
 % A=figure;
 % A.Position(3:4)=[3000,5000];
 % subplot(1,3,1);
