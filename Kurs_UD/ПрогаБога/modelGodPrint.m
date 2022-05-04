@@ -1,5 +1,5 @@
 A=figure;
-A.Position(3:4)=[2000,3000];
+A.Position(3:4)=[1200,3000];
 plot(t,zad);
 title('Входной сигнал');
 grid; 
@@ -8,7 +8,7 @@ ylabel('V_{y_{Зад}}, м/с');
 saveas(A,'NotLin/Линейный ВС.jpg');
 
 B=figure;
-B.Position(3:4)=[2000,3000];
+B.Position(3:4)=[1200,3000];
 subplot(1,2,1);plot(t,deltaNotLin*57.3);
 title('Нелинейное отклонение элевонов');
 grid; 
@@ -22,7 +22,7 @@ ylabel('\Delta\delta_{э}, град');
 saveas(B,'NotLin/Руль.jpg');
 
 C=figure;
-C.Position(3:4)=[2000,3000];
+C.Position(3:4)=[1200,3000];
 subplot(1,2,1);plot(t,wzNotLin*57.3);
 title('Нелинейное изменение угловой скорости тангажа');
 grid; 
@@ -36,7 +36,7 @@ ylabel('\Delta\omega_{z}, град/c');
 saveas(C,'NotLin/wz.jpg');
 
 D=figure;
-D.Position(3:4)=[2000,3000];
+D.Position(3:4)=[1200,3000];
 subplot(1,2,1);plot(t,varthetaNotLin*57.3);
 title('Нелинейное изменение тангажа');
 grid; 
@@ -50,7 +50,7 @@ ylabel('\Delta\vartheta, град');
 saveas(D,'NotLin/vartheta.jpg');
 
 E=figure;
-E.Position(3:4)=[2000,3000];
+E.Position(3:4)=[1200,3000];
 subplot(1,2,1);plot(t,VyNotLin);
 title('Нелинейное изменение вертикальной скорости');
 grid; 

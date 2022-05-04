@@ -13,10 +13,10 @@ CeOH=0.042;
 method='linear';
 
 H1=[0 3000 6000 9000 11000];
-load('DataAfterburnerTRDF.mat');
+% load('DataAfterburnerTRDF.mat');
 load('AtmosphereStandard.mat');
 load('Aerodynamics.mat');
-% load('Data_Without_AfterburnerTRDF.mat');
+load('Data_Without_AfterburnerTRDF.mat');
 
 M_H=0.03;
 M_K=3;
@@ -74,7 +74,7 @@ for j=1:length(H)
         if H(j)==11000
             Ce_isk(i,j)=interp2(H1,M1,Ce1',11000,M(i),method);
             Cedros(i,j)=interp1(R1, Cedros1, R(i,j), method, 'extrap');
-            CE(i,j)=Ce_isk(i,j)*Cedros(i,j);
+            CE(i,j)=0.1*Ce_isk(i,j)*Cedros(i,j);
             CE11(i)=CE(i,j);
         end
         
@@ -84,7 +84,7 @@ for j=1:length(H)
         else
             Ce_isk(i,j)=interp2(H1,M1,Ce1',H(j),M(i),method);
             Cedros(i,j)=interp1(R1, Cedros1, R(i,j), method, 'extrap');
-            CE(i,j)=Ce_isk(i,j)*Cedros(i,j);
+            CE(i,j)=0.1*Ce_isk(i,j)*Cedros(i,j);
         end   
         nx(i,j)=(P_rasp(i,j)-P_pot(i,j))/(k*m*g);
         Vy(i,j)=nx(i,j)*V(i,j);
@@ -102,7 +102,7 @@ Vy_max=max(Vy',[],2);
 M_maxq;
 
 QKM_min=min(q_km',[],2)
-QCHAS_min=min(q_chas',[],2);
+QCHAS_min=min(q_chas',[],2)
 % P_potmin=min(P_pot',[],2);
 
 
