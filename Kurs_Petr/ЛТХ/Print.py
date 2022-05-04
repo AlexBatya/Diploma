@@ -21,3 +21,5 @@ LatexTable(Cxx,'texi/Cx.tex','Cx',r'Результаты расчётов $Cx(M,
 LatexTable(KK,'texi/K.tex','K',r'Результаты расчётов $K(M,H)$',2)
 LatexTable(pp,'texi/Pp.tex','Pp',r'Результаты расчётов $P_\text{п}(M,H)$',0)
 LatexTable(pr,'texi/Pr.tex','Pr',r'Результаты расчётов $P_\text{р}(M,H)$',0)
+
+figurePrint(M_interp,Pp(M_interp,H_interp[0]),'Потребные тяги','M',r'P_\text{п}','figs/Pp.jpg')

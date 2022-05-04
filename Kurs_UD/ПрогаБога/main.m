@@ -46,8 +46,8 @@ W_zam = feedback(W_raz,1);
 
 Wwz_raz1 = Drive * tf(diffura(2))* -K_wz ;%с САУ
 Wwz_raz2 = Drive * tf(diffura(2)); %без САУ
-Wwz_zam1 = feedback(Drive* tf(diffura(2)),-K_wz);
-Wwz_zam2 = feedback(Drive* tf(diffura(2)),1);
+Wwz_zam1 = feedback( tf(diffura(2)),-K_wz);
+Wwz_zam2 = feedback( tf(diffura(2)),1);
 
 Wv_raz1 = Wwz_zam1* 1/p * -K_v;
 Wv_raz2 = Wwz_zam2 * 1/p;

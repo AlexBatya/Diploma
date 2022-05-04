@@ -1,5 +1,6 @@
 import pandas as pd 
 import numpy as np
+import matplotlib.pyplot as plt
 
 def columnTable(A):
     column_format = ''
@@ -24,3 +25,12 @@ def LatexTable(table,fileNaame,label,caption,num):
                 position="H"
             )
         )
+
+def figurePrint(x,y,title,xlabel,ylabel,fileName):
+    plt.plot(x,y)
+    plt.grid()
+    plt.title(title)
+    plt.xlabel(xlabel)
+    plt.ylabel(ylabel)
+    plt.savefig(fileName)
+
