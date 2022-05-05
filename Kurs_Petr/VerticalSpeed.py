@@ -1,4 +1,6 @@
 import numpy as np 
+import sys
+
 from Data import mass
 from Ppotr import Pp, V
 from Prasp import Pr

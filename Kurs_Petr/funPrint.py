@@ -20,7 +20,7 @@ def LatexTable(table,fileNaame,label,caption,num):
             .to_latex(
                 caption = caption,
                 label = label,
-                column_format='|' + columnTable(table),
+                column_format='|c|' + columnTable(table),
                 escape=False,
                 position="H"
             )
