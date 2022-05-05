@@ -35,6 +35,8 @@ qhh.columns.name = 'H,м/M'
 qkkr = pd.DataFrame(qkm(M_interp,H_interp),columns = M_interp,index = H_interp)
 qkkr.columns.name = 'H,м/M'
 
+M_interp = np.arange(M1[0],M1[-1],0.01)
+
 LatexTable(VV,'texi/V','V',r'Результаты расчётов $V(M,H)$ м/с',1)
 LatexTable(qq,'texi/q','q',r'Результаты расчётов $q(M,H)$, Н/м$^2$',0)
 LatexTable(Cyy,'texi/Cy','Cy',r'Результаты расчётов $C_y(M,H)$',3)
