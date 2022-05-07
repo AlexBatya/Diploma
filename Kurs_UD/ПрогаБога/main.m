@@ -61,7 +61,7 @@ WVy_zam2 = feedback(WVy_raz2,1);
 % % _____________________________________________________________
 % FreqName3qmax = 'img/ZAM qMAX.jpg';
 % FreqName3qmax = 'img/ZAM qMIN.jpg';
-FreqName3qmax = 'img/ZAM qKR.jpg';
+% FreqName3qmax = 'img/ZAM qKR.jpg';
 
 % FreqName_Wwz_qmax='img/Угловая скорость тангажа раз qMAX.jpg';
 % FreqName_Wv_qmax='img/Тангаж раз qMAX.jpg';
@@ -71,36 +71,36 @@ FreqName3qmax = 'img/ZAM qKR.jpg';
 % FreqName_Wv_qmax='img/Тангаж раз qMIN.jpg';
 % FreqName_WVy_qmax='img/Вертикальная скорость раз qMIN.jpg';
 
-FreqName_Wwz_qmax='img/Угловая скорость тангажа раз qKR.jpg';
-FreqName_Wv_qmax='img/Тангаж раз qKR.jpg';
-FreqName_WVy_qmax='img/Вертикальная скорость раз qKR.jpg';
+% FreqName_Wwz_qmax='img/Угловая скорость тангажа раз qKR.jpg';
+% FreqName_Wv_qmax='img/Тангаж раз qKR.jpg';
+% FreqName_WVy_qmax='img/Вертикальная скорость раз qKR.jpg';
 % %_______________________________________________________________
-A=figure;
-A.Position(3:4)=[3000,5000];
-subplot(1,3,1);
-bode(Wwz_zam1);
-title('Замкнутый контур стабилизации угловой скорости тангажа');
-grid;
+% A=figure;
+% A.Position(3:4)=[3000,5000];
+% subplot(1,3,1);
+% bode(Wwz_zam1);
+% title('Замкнутый контур стабилизации угловой скорости тангажа');
+% grid;
 
-subplot(1,3,2);
-bode(Wv_zam1);
-title('Замкнутый контур стабилизации тангажа')
-grid;
+% subplot(1,3,2);
+% bode(Wv_zam1);
+% title('Замкнутый контур стабилизации тангажа')
+% grid;
 
-subplot(1,3,3);
-bode(WVy_zam1);
-title('Замкнутый контур стабилизации вертикальной скорости')
-grid;
-saveas(A,FreqName3qmax);
+% subplot(1,3,3);
+% bode(WVy_zam1);
+% title('Замкнутый контур стабилизации вертикальной скорости')
+% grid;
+% saveas(A,FreqName3qmax);
 
-print2(FreqName_Wwz_qmax,Wwz_raz1,Wwz_raz2,'Разомкнутый контур стабилизации угловой скорости тангажа',...
-'Разомкнутый контур стабилизации угловой скорости тангажа без САУ')
+% print2(FreqName_Wwz_qmax,Wwz_raz1,Wwz_raz2,'Разомкнутый контур стабилизации угловой скорости тангажа',...
+% 'Разомкнутый контур стабилизации угловой скорости тангажа без САУ')
 
-print2(FreqName_Wv_qmax,Wv_raz1,Wv_raz2,'Разомкнутый контур стабилизации тангажа',...
-'Разомкнутый контур стабилизации тангажа без САУ')
+% print2(FreqName_Wv_qmax,Wv_raz1,Wv_raz2,'Разомкнутый контур стабилизации тангажа',...
+% 'Разомкнутый контур стабилизации тангажа без САУ')
 
-print2(FreqName_WVy_qmax,WVy_raz1,WVy_raz2,'Разомкнутый контур стабилизации вертикальной скорости',...
-'Разомкнутый контур стабилизации вертикальной скорости без САУ')
+% print2(FreqName_WVy_qmax,WVy_raz1,WVy_raz2,'Разомкнутый контур стабилизации вертикальной скорости',...
+% 'Разомкнутый контур стабилизации вертикальной скорости без САУ')
 
 
 

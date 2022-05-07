@@ -13,20 +13,7 @@ function [W_raz,K_v,K_wz,K_H,Kp,Ki]=Synthesis_of_ACS(mah,height,w0_max)
     K_v=nu*K_wz;
     K_H=V;
 
-    answer=false;
-
-    while(~answer)
-        if(nu<=Ya_Alpha)
-            nu=nu+0.01;
-        else
-            nu=nu-0.01;
-        end
-        if(abs(nu-Ya_Alpha)<=0.2)
-            K_v=nu*K_wz;
-            answer=true;
-        end
-    end
-
+    Wwz_raz1 = Drive* tf(diffura(2)) * -K_wz;
     Wwz_zam1 = feedback(Drive* tf(diffura(2)),-K_wz);
     Wv_raz1 = Wwz_zam1* 1/p * -K_v;
     Wv_zam1 = feedback(Wv_raz1,1);
