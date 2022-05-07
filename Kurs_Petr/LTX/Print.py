@@ -9,7 +9,7 @@ from Prasp import *
 from funPrint import *
 import pandas as pd
 
-M_interp = np.arange(M1[0],M1[-1],0.3)
+M_interp = np.arange(M1[1],M1[-1],0.3)
 H_interp = np.arange(H1[0],H1[-1],4000)
 
 VV = pd.DataFrame(V(M_interp,H_interp),columns = M_interp,index = H_interp)
@@ -49,4 +49,27 @@ LatexTable(nxx,'texi/nx','nx',r'Результаты расчётов $n_x(M,H)$
 LatexTable(qhh,'texi/qh','nx',r'Результаты расчётов $q_\text{ч}(M,H)$, кг/ч',0)
 LatexTable(qkkr,'texi/qkm','nx',r'Результаты расчётов $q_\text{км}(M,H)$, кг/км',0)
 
-# figurePrint(M_interp,Pp(M_interp,H_interp[0]),'Потребные тяги','M',r'P_\text{п}','figs/Pp.jpg')
+P_rasp = Pr(M_interp,H_interp)
+P_potr = Pp(M_interp,H_interp)
+
+for i in range(len(H_interp)):
+    plt.plot(M_interp,P_potr[i])
+    plt.plot(M_interp,P_rasp[i],'-.')
+    plt.legend(('Pп, Н','Pр, Н'))
+    plt.grid()
+    plt.title('H = '+str(H_interp[i])+' км')
+    plt.xlabel('Число Маха')
+    plt.ylabel('Тяга, H')
+    plt.savefig('figs/PpPr'+str(i)+'.jpg')
+    plt.show()
+
+M_interp = np.arange(M1[1],M1[-1],0.01)
+for i in range(len(H_interp)):
+    plt.plot(M_interp,Cydop(M_interp),'-.',M_interp,Cy(M_interp,H_interp[i]))
+    plt.legend((r'$C_{y_{доп}}$',r'$C_y$'))
+    plt.grid()
+    plt.title('H = '+str(H_interp[i])+' км')
+    plt.xlabel('Число Маха')
+    plt.ylabel('Коэффициент подьёмной силы')
+    plt.savefig('figs/CyCydop'+str(i)+'.jpg')
+    plt.show()

@@ -12,3 +12,8 @@ from Prasp import * # Если хочИшь найти единичное зна
 from Expenses import *
 from VerticalSpeed import * 
 
+M_interp = np.arange(M1[0],M1[-1],0.3)
+H_interp = np.arange(H1[0],H1[-1],4000)
+
+# print(H_interp)
+

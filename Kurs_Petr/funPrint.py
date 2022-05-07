@@ -26,11 +26,16 @@ def LatexTable(table,fileNaame,label,caption,num):
             )
         )
 
-def figurePrint(x,y,title,xlabel,ylabel,fileName):
+def figurePrint(x,y,title,xlabel,ylabel):
     plt.plot(x,y)
     plt.grid()
     plt.title(title)
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
-    plt.savefig(fileName)
 
+def figurePrint2Linear(x,y,x1,y1,title,xlabel,ylabel):
+    plt.plot(x,y,x1,y1)
+    plt.grid()
+    plt.title(title)
+    plt.xlabel(xlabel)
+    plt.ylabel(ylabel)
