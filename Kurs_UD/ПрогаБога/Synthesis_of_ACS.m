@@ -12,10 +12,36 @@ function [W_raz,K_v,K_wz,K_H,Kp,Ki]=Synthesis_of_ACS(mah,height,w0_max)
     K_wz=e*K_wzGr;
     K_v=nu*K_wz;
     K_H=V;
+    stocks = 12;
 
-    Wwz_raz1 = Drive* tf(diffura(2)) * -K_wz;
+    answer = false;
+    while ~answer 
+        Wwz_raz1 = Drive* tf(diffura(2)) * -K_wz;  
+        [L,fi,wsr] = margin(Wwz_raz1);
+        if abs(20*log10(L)-stocks)<=0.2
+            K_wz=e*K_wzGr;
+            answer = true ;
+        else 
+            e = e + 0.01;
+            K_wz=e*K_wzGr;
+        end
+    end 
     Wwz_zam1 = feedback(Drive* tf(diffura(2)),-K_wz);
-    Wv_raz1 = Wwz_zam1* 1/p * -K_v;
+    answer = false;
+
+    while(~answer)
+        Wv_raz1 = Wwz_zam1* 1/p * -K_v;
+        [L,fi,wsr] = margin(Wv_raz1);
+        if(abs(20*log10(L))-stocks) <=0.01
+            K_v=nu*K_wz;
+            answer = true  ;
+        else
+            nu = nu + 0.01;
+            K_v=nu*K_wz; 
+        end
+    end 
+    Wv_raz1 = Wwz_zam1* 1/p * -K_v;   
+    
     Wv_zam1 = feedback(Wv_raz1,1);
     W_raz = Wv_zam1 * K_H/(p/Ya_Alpha+1);
 
