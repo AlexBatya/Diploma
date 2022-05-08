@@ -38,7 +38,7 @@ qkkr.columns.name = 'H,м/M'
 M_interp = np.arange(M1[0],M1[-1],0.01)
 
 LatexTable(VV,'texi/V','V',r'Результаты расчётов $V(M,H)$ м/с',1)
-LatexTable(qq,'texi/q','q',r'Результаты расчётов $q(M,H)$, \cdot 10^{-4} Н/м$^2$',2)
+LatexTable(qq,'texi/q','q',r'Результаты расчётов $q(M,H)$, \cdot 10^{-4}$ Н/м$^2$',2)
 LatexTable(Cyy,'texi/Cy','Cy',r'Результаты расчётов $C_y(M,H)$',3)
 LatexTable(Cxx,'texi/Cx','Cx',r'Результаты расчётов $C_x(M,H)$',3)
 LatexTable(KK,'texi/K','K',r'Результаты расчётов $K(M,H)$',2)
@@ -106,13 +106,13 @@ P_potr = Pp(M_interp,H_interp)
 #     plt.savefig('figs/Vy'+str(i)+'.jpg')
 #     plt.show()
 
-H_interp = np.arange(H1[0],H1[-1],500)
-V_y = Vy(M_interp,H_interp)
-Vy_max = []
-qkm_max = []
-qh_max = []
-for i in range(len(H_interp)):
-    Vy_max.append(np.max(V_y[i]))
-    qkm_max.append(np.max(qkm(M_interp,H_interp[i])))
-    qh_max.append(np.max(qh(M_interp,H_interp[i])))
+# H_interp = np.arange(H1[0],H1[-1],500)
+# V_y = Vy(M_interp,H_interp)
+# Vy_max = []
+# qkm_max = []
+# qh_max = []
+# for i in range(len(H_interp)):
+#     Vy_max.append(np.max(V_y[i]))
+#     qkm_max.append(np.max(qkm(M_interp,H_interp[i])))
+#     qh_max.append(np.max(qh(M_interp,H_interp[i])))
 
