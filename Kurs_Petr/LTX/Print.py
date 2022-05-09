@@ -133,16 +133,16 @@ for i in range(len(H_interp)):
     MVy_max.append(M_interp[np.where(V_y[i]==Vy_max[i])])
     Mqh_min.append(M_interp[np.where(qh(M_interp,H_interp[i])==qh_min[i])])
     Mqkm_min.append(M_interp[np.where(qkm(M_interp,H_interp[i])==qkm_min[i])])
-#     for j in range(len(M_interp)):
-#         if M_nae[i]>=M_interp[j]:
-#             if abs(P_rasp[i][j]-P_potr[i][j])<=500:
-#                 M_min.append(M_interp[j])
-#                 break
-#     for j in range(len(M_interp)):
-#         if M_nae[i]<=M_interp[j]:
-#             if abs(P_rasp[i][j]-P_potr[i][j])<=500:
-#                 M_max.append(M_interp[j])
-#                 break   
+    for j in range(len(M_interp)):
+        if M_nae[i]>=M_interp[j]:
+            if abs(P_rasp[i][j]-P_potr[i][j])<=500:
+                M_min.append(M_interp[j])
+                break
+    for j in range(len(M_interp)):
+        if M_nae[i]<=M_interp[j]:
+            if abs(P_rasp[i][j]-P_potr[i][j])<=500:
+                M_max.append(M_interp[j])
+                break   
     for j in range(len(M_interp)): 
         if abs(Cydop(M_interp[j])-C_y[i][j])<=0.01:
             MCy_dop.append(M_interp[j])
