@@ -30,7 +30,7 @@ Vyy = pd.DataFrame(Vy(M_interp,H_interp),columns = M_interp,index = H_interp)
 Vyy.columns.name = 'H,м/M'
 nxx = pd.DataFrame(nx(M_interp,H_interp),columns = M_interp,index = H_interp)
 nxx.columns.name = 'H,м/M'
-qhh = pd.DataFrame(qh(M_interp,H_interp),columns = M_interp,index = H_interp)
+qhh = pd.DataFrame(qh(M_interp,H_interp)/10000,columns = M_interp,index = H_interp)
 qhh.columns.name = 'H,м/M'
 qkkr = pd.DataFrame(qkm(M_interp,H_interp),columns = M_interp,index = H_interp)
 qkkr.columns.name = 'H,м/M'
@@ -46,7 +46,7 @@ LatexTable(pp,'texi/Pp','Pp',r'Результаты расчётов $P_\text{п
 LatexTable(pr,'texi/Pr','Pr',r'Результаты расчётов $P_\text{р}(M,H) \cdot 10^{-5},$ Н$',2)
 LatexTable(Vyy,'texi/Vy','Vy',r'Результаты расчётов $V^*_y(M,H)$, м/с',1)
 LatexTable(nxx,'texi/nx','nx',r'Результаты расчётов $n_x(M,H)$',3)
-LatexTable(qhh,'texi/qh','nx',r'Результаты расчётов $q_\text{ч}(M,H)$, кг/ч',0)
+LatexTable(qhh,'texi/qh','nx',r'Результаты расчётов $q_\text{ч}(M,H) \cdot 10^{-4}$, кг/ч',2)
 LatexTable(qkkr,'texi/qkm','nx',r'Результаты расчётов $q_\text{км}(M,H)$, кг/км',0)
 
 P_rasp = Pr(M_interp,H_interp)
@@ -94,7 +94,7 @@ P_potr = Pp(M_interp,H_interp)
 #     plt.savefig('figs/qkm'+str(i)+'.jpg')
 #     plt.show()
 
-# V_y = Vy(M_interp,H_interp)
+V_y = Vy(M_interp,H_interp)
 
 # for i in range(len(H_interp)):
 #     plt.plot(M_interp,V_y[i])
@@ -106,13 +106,41 @@ P_potr = Pp(M_interp,H_interp)
 #     plt.savefig('figs/Vy'+str(i)+'.jpg')
 #     plt.show()
 
-# H_interp = np.arange(H1[0],H1[-1],500)
-# V_y = Vy(M_interp,H_interp)
-# Vy_max = []
-# qkm_max = []
-# qh_max = []
-# for i in range(len(H_interp)):
-#     Vy_max.append(np.max(V_y[i]))
-#     qkm_max.append(np.max(qkm(M_interp,H_interp[i])))
-#     qh_max.append(np.max(qh(M_interp,H_interp[i])))
+Vy_max = []
+MVy_max = []
+P_potr_min = []
+M_nae = []
+qh_min = []
+qkm_min = []
+Mq_max = []
+Mqh_min = []
+Mqkm_min = []
+for i in range(len(H_interp)): 
+    Vy_max.append(np.max(V_y[i]))
+    P_potr_min.append(np.min(P_potr[i]))
+    qh_min.append(np.min(qh(M_interp,H_interp[i])))
+    qkm_min.append(np.min(qkm(M_interp,H_interp[i])))
+    # Mq_max = 2*q_max/(sqrt())
+    MVy_max.append(M_interp[np.where(V_y[i]==Vy_max[i])])
+    M_nae.append(M_interp[np.where(P_potr[i]==P_potr_min[i])])
+    Mqh_min.append(M_interp[np.where(qh(M_interp,H_interp[i])==qh_min[i])])
+    Mqkm_min.append(M_interp[np.where(qkm(M_interp,H_interp[i])==qkm_min[i])])
+print(Mqkm_min)
+
+M_interp = np.arange(M1[1],M1[-1],0.0001)
+H_interp = np.arange(H1[0],H1[-1],50)
+M_min = []
+M_max = []
+for i in range(len(H_interp)):
+    for j in range(len(M_interp)):
+        if M_nae[i]<=M_interp[j]:
+            if abs(P_rasp[i][j]-P_potr[i][j])<=100:
+                M_min.append(M_interp[j])
+                break
+    # for j in range(len(M_interp)):
+    #     if M_nae[i]>=M_interp[j]:
+    #         if abs(P_rasp[i][j]-P_potr[i][j])<=100:
+    #             M_max.append(M_interp[j])
+    #             break
+print(M_min)
 
