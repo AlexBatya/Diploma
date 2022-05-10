@@ -129,7 +129,7 @@ M_max = []
 for i in range(len(H_interp)):
     P_potr_min.append(np.min(P_potr[i]))
     M_pred.append(2.4)
-    Mq_max.append(V_ind/((ro(H_interp[i])/1.225)*a(H_interp[i]))**0.5)
+    Mq_max.append(round(V_ind/((ro(H_interp[i])/1.225)*a(H_interp[i]))**0.5,3))
     M_nae.append(np.round(M_interp[np.where(P_potr[i]==P_potr_min[i])],3))
     Vy_max.append(np.max(V_y[i]))
     qh_min.append(np.min(qh(M_interp,H_interp[i])))
@@ -152,13 +152,14 @@ for i in range(len(H_interp)):
             MCy_dop.append(np.round(M_interp[j],3))
             break 
 
+print(Mq_max)
 MVy_max =  [*map(list, zip(*MVy_max))]
 Mqh_min =  [*map(list, zip(*Mqh_min))]
 Mqkm_min =  [*map(list, zip(*Mqkm_min))]
 MVy_max = MVy_max[0]
 Mqh_min = Mqh_min[0]
 Mqkm_min = Mqkm_min[0]
-M = [H_interp,M_min,M_max,MVy_max,MCy_dop,Mqh_min,Mqkm_min,M_pred]
+M = [H_interp,M_min,M_max,MVy_max,MCy_dop,Mqh_min,Mqkm_min,M_pred,Mq_max]
 MT =  [*map(list, zip(*M))]
 
 f = open('texi/Результаты.tex','w') 
