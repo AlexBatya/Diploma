@@ -144,7 +144,7 @@ for i in range(len(H_interp)):
                 break
     for j in range(len(M_interp)):
         if M_nae[i]<=M_interp[j]:
-            if abs(P_rasp[i][j]-P_potr[i][j])<=1000:
+            if abs(P_rasp[i][j]-P_potr[i][j])<=1000:    
                 M_max.append(np.round(M_interp[j],3))
                 break    
     for j in range(len(M_interp)): 
@@ -157,7 +157,7 @@ Mqkm_min =  [*map(list, zip(*Mqkm_min))]
 MVy_max = MVy_max[0]
 Mqh_min = Mqh_min[0]
 Mqkm_min = Mqkm_min[0]
-M = [H_interp,M_min,M_max,MVy_max,MCy_dop,Mqh_min,Mqkm_min,M_pred]
+M = [H_interp,M_min,M_max,MVy_max,MCy_dop,Mqh_min,Mqkm_min,M_pred,Mq_max]
 MT =  [*map(list, zip(*M))]
 
 f = open('texi/Результаты.tex','w') 
@@ -173,10 +173,29 @@ for i in range(len(H_interp)):
         f.write(str(r' \\ \hline '))
 f.close()
 
-plt.plot(M_min,H_interp,M_max,H_interp,MCy_dop,H_interp,Mq_max,H_interp)
+plt.plot(M_min,H_interp,'-',M_max,H_interp,'-.',MCy_dop,H_interp,'--')
 plt.grid()
-plt.xlabel('Залупа')
-plt.ylabel('Шмонь')
-plt.title('Бабкино влагалище')
+plt.xlabel('Число Маха')
+plt.legend((r'$M_{min_P}$',r'$M_{max_P}$',r'$M_{C_{y_{доп}}}$'))
+plt.ylabel('Высота, м')
+plt.title('Область возможных полётов')
+plt.savefig('figs/Область'+'.jpg')
+plt.show()
+
+plt.plot(Vy_max,H_interp)
+plt.grid()
+plt.xlabel(r'$V_{y \ max}^*,$ м/c')
+plt.legend(())
+plt.ylabel('Высота, м')
+plt.savefig('figs/Vy(H)'+'.jpg')
+plt.show()
+
+qh_min1 = np.divide(qh_min,1000)
+plt.plot(qh_min1,H_interp,qkm_min,H_interp,'--')
+plt.grid()
+plt.xlabel('Число Маха')
+plt.legend((r'$q_{ч_{min}} \cdot 10^{-3}$, Н/м$^2$',r'$q_{км_{min}}$, Н/м$^2$'))
+plt.ylabel('Высота, м')
+plt.savefig('figs/qhqkm_MAX'+'.jpg')
 plt.show()
 
