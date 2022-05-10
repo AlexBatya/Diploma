@@ -118,16 +118,18 @@ Mqkm_min = []
 MCy_dop = []
 M_pred = [] 
 M_interp = np.arange(M1[0],M1[-1],0.0001)
-H_interp = np.arange(H1[0],19000,1000)
+H_interp = np.arange(H1[0],19000,500)
 P_rasp = Pr(M_interp,H_interp)
 P_potr = Pp(M_interp,H_interp)
 V_y = Vy(M_interp,H_interp)
 C_y = Cy(M_interp,H_interp)
+Mq_max = []
 M_min = []
 M_max = []
 for i in range(len(H_interp)):
     P_potr_min.append(np.min(P_potr[i]))
     M_pred.append(2.4)
+    Mq_max.append(V_ind/((ro(H_interp[i])/1.225)*a(H_interp[i]))**0.5)
     M_nae.append(np.round(M_interp[np.where(P_potr[i]==P_potr_min[i])],3))
     Vy_max.append(np.max(V_y[i]))
     qh_min.append(np.min(qh(M_interp,H_interp[i])))
@@ -162,9 +164,14 @@ MT =  [*map(list, zip(*M))]
 f = open('texi/Результаты.tex','w') 
 for i in range(len(H_interp)):
     for j in range(len(M)):
-        f.write(str(MT[i][j])+' & ')
-    f.write.replace()
-    f.write(str(r' \\ \hline '))
+        if MT[i][j] == MT[i][-1]:
+            f.write(str(MT[i][j]))
+        else:
+            f.write(str(MT[i][j])+' & ')
+    if MT[i] == MT[-1]:  
+        f.write(str(''))
+    else:
+        f.write(str(r' \\ \hline '))
 f.close()
 
 
