@@ -118,7 +118,7 @@ Mqkm_min = []
 MCy_dop = []
 M_pred = [] 
 M_interp = np.arange(M1[0],M1[-1],0.0001)
-H_interp = np.arange(H1[0],19000,500)
+H_interp = np.arange(H1[0],19800,400)
 P_rasp = Pr(M_interp,H_interp)
 P_potr = Pp(M_interp,H_interp)
 V_y = Vy(M_interp,H_interp)
@@ -129,7 +129,7 @@ M_max = []
 for i in range(len(H_interp)):
     P_potr_min.append(np.min(P_potr[i]))
     M_pred.append(2.4)
-    Mq_max.append(round(V_ind/((ro(H_interp[i])/1.225)*a(H_interp[i]))**0.5,3))
+    Mq_max.append(round(V_ind/((ro(H_interp[i])/1.225)**0.5*a(H_interp[i])),3))
     M_nae.append(np.round(M_interp[np.where(P_potr[i]==P_potr_min[i])],3))
     Vy_max.append(np.max(V_y[i]))
     qh_min.append(np.min(qh(M_interp,H_interp[i])))
@@ -151,15 +151,13 @@ for i in range(len(H_interp)):
         if abs(Cydop(M_interp[j])-C_y[i][j])<=0.01:
             MCy_dop.append(np.round(M_interp[j],3))
             break 
-
-print(Mq_max)
 MVy_max =  [*map(list, zip(*MVy_max))]
 Mqh_min =  [*map(list, zip(*Mqh_min))]
 Mqkm_min =  [*map(list, zip(*Mqkm_min))]
 MVy_max = MVy_max[0]
 Mqh_min = Mqh_min[0]
 Mqkm_min = Mqkm_min[0]
-M = [H_interp,M_min,M_max,MVy_max,MCy_dop,Mqh_min,Mqkm_min,M_pred,Mq_max]
+M = [H_interp,M_min,M_max,MVy_max,MCy_dop,Mqh_min,Mqkm_min,M_pred]
 MT =  [*map(list, zip(*M))]
 
 f = open('texi/Результаты.tex','w') 
@@ -175,5 +173,10 @@ for i in range(len(H_interp)):
         f.write(str(r' \\ \hline '))
 f.close()
 
-
+plt.plot(M_min,H_interp,M_max,H_interp,MCy_dop,H_interp,Mq_max,H_interp)
+plt.grid()
+plt.xlabel('Залупа')
+plt.ylabel('Шмонь')
+plt.title('Бабкино влагалище')
+plt.show()
 
