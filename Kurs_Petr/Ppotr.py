@@ -14,6 +14,9 @@ def Cy(M,H):
 def Cx(M,H):
     return Cx0(M) + np.multiply(A(M),np.multiply(Cy(M,H),Cy(M,H))) 
 
+def He(M,H):
+    return np.array(H).T*1000+V(M,H)**2/(2*9.81)
+
 def K(M,H):
     return np.divide(Cy(M,H),Cx(M,H))
 
