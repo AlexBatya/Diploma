@@ -1,8 +1,9 @@
 from main import * 
+from spusk import * 
 # for i in range(len(H)):
 
 Array = [H, M, ] 
-tab1 =  
+# tab1 =  
 f = open('texi/Результаты.tex','w') 
 for i in range(len(H)):
     for j in range(len(M)):

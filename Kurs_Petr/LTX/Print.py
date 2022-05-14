@@ -154,10 +154,12 @@ for i in range(len(H_interp)):
 MVy_max =  [*map(list, zip(*MVy_max))]
 Mqh_min =  [*map(list, zip(*Mqh_min))]
 Mqkm_min =  [*map(list, zip(*Mqkm_min))]
+M_nae =  [*map(list, zip(*M_nae))]
+M_nae = M_nae[0]
 MVy_max = MVy_max[0]
 Mqh_min = Mqh_min[0]
 Mqkm_min = Mqkm_min[0]
-M = [H_interp,M_min,M_max,MVy_max,MCy_dop,Mqh_min,Mqkm_min,M_pred,Mq_max]
+M = [H_interp,M_min,M_max,MVy_max,MCy_dop,Mqh_min,Mqkm_min,M_pred,M_nae,Mq_max]
 MT =  [*map(list, zip(*M))]
 
 f = open('texi/Результаты.tex','w') 
