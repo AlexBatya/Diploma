@@ -1,3 +1,5 @@
+import sys
+sys.path.insert(0,"../")
 from Data import *
 import matplotlib.pyplot as plt 
 import numpy as np 
@@ -9,9 +11,9 @@ m0=180000
 g=9.81
 a=6
 alfa=a*3.14/180
-Ps=550
+Ps=490.5
 Ro=1.225
-P0=0.26
+P0=0.408
 Ph=0.935
 Pr=m0*g*Ph*P0
 P=1.25*Pr
