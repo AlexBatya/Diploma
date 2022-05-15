@@ -76,3 +76,4 @@ L_BYP=K_pos*(H_pos+(V_pl**2-V_kas**2)/(2*g))
 
 Lpd=Lprob+L_BYP
 print('ѕосадочна€ дистанци€',Lpd)
+
