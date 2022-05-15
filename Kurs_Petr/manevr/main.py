@@ -70,6 +70,6 @@ for i in range(len(M)):
 
     # ny_vir.append(min(n_ydop[i],ny_P))
 
-# print(ny_P)
+print(ny_P)
 
 
