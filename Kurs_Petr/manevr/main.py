@@ -44,8 +44,6 @@ def ny(M,H):
 def ny_e(M,H):
     return Cydop(M)/Cy(M,H)
 
-def ny_P(M,H):
-    return 1/Cy(M,H)*math.sqrt()
 
 mc = 80000 - 100000*0.5
 ny_ee = 3.5 
@@ -59,6 +57,9 @@ n_ye = []
 ny_vir = []
 bar_Pr = []
 ny_P = []
+w_vir = []  
+r_vir = [] 
+t_vir =[]                  
 
 for i in range(len(M)):
     bar_Pr.append(Pr(M[i],H)/(mc*9.81))
@@ -66,10 +67,12 @@ for i in range(len(M)):
     n_y.append(ny(M[i],H))
     n_ye.append(ny_e(M[i],H))
     n_ydop.append(min(n_y[i],ny_ee))
-    print(ny_P[i])
-
     # ny_vir.append(min(n_ydop[i],ny_P))
-
+    # w_vir.append(9.81/V(M[i],H)*(ny_vir[i]**2-1)**0.5)
+    # r_vir.append(V(M[i],H)/w_vir[i])
+    # t_vir = 2*math.pi*r_vir/V(M[i],H)
 print(ny_P)
+
+
 
 
