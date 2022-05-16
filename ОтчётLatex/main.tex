@@ -1,0 +1,48 @@
+\documentclass[a4paper,12pt]{article} 
+\usepackage[T2A]{fontenc} %кодировка  
+\usepackage[utf8]{inputenc} %Кодировка исходного текста  
+\usepackage[english,russian]{babel} %локализация и переносы  
+% \usepackage[utf8]{inputenc} 
+% \usepackage[russian]{babel} 
+\usepackage{indentfirst} 
+\usepackage{float} 
+\usepackage{geometry} 
+\usepackage[warn]{mathtext} 
+\usepackage[english,russian]{babel} 
+\usepackage{amsmath}
+\setlength{\parindent}{12.5mm}
+% \setlength{\parskip}{1em}
+\linespread{1.5} % по умолчанию 1.0
+% \usepackage{gensymb} %% Чтоб градусы работали 
+\geometry{a4paper,total={170mm,257mm},left=30mm,top=20mm,right=10mm} 
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools} %Математика 
+% \usepackage{lastpage} %Счётчик страниц
+\usepackage{booktabs}
+\usepackage[usenames]{color}
+\usepackage{colortbl}
+\usepackage{longtable}
+\usepackage{fancyhdr}
+
+ 
+\begin{document} % начало документа
+
+\input{Оглавление/title}
+\input{Оглавление/Реферат}
+\input{Оглавление/Оглавление}
+\input{Оглавление/Список обозначений и сокращений}
+\newpage
+\begin{figure}[H]
+    \center{\includegraphics[width=\linewidth]{img/Concorde.jpg}}
+    \caption{Concorde}
+    \label{fig:Concorde}
+\end{figure}
+\input{Оглавление/Исходные данные}
+
+\input{Оглавление/Part1/Первый курсач}
+\input{Оглавление/Part2/Второй курсач}
+\input{Оглавление/Part3/Обратная динамика}
+
+\input{Оглавление/Список литературы}
+
+\end{document}  % КОНЕЦ ДОКУМЕНТА !
+

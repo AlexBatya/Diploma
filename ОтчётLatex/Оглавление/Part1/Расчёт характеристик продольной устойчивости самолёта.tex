@@ -1,0 +1,201 @@
+\subsection{Расчёт характеристик продольной устойчивости самолёта}
+\label{sec:Расчёт характеристик продольной устойчивости самолёта}
+
+Прежде чем приступить к расчету характеристик продольной статической устойчивости и управляемости необходимо определить безразмерную площадь горизонтальногооперения $\bar{S}_\text{ГО}$ из условия устойчивости и балансировки.
+
+Далее вычисляется следующие характеристики:
+\begin{enumerate}
+    \item Зависимости от числа М (скорости) полета:
+    \begin{itemize}
+        \item [-] запаса статической устойчивости по перегрузке $\sigma_n$,
+        \item [-] фокуса самолета $\bar{X}_F$,
+        \item [-] точки нейтральности по перегрузке $\bar{X}_H$,
+        \item [-] предельно задней центровки $\bar{X}_\text{ТПЗ}$.
+    \end{itemize}
+    \item Зависимость от числа М (скорости) полета:
+    \begin{itemize}
+        \item [-] балансировочного отклонения органа продольного управления $\varphi_\text{бал}(\delta_\text{бал})$,
+        \item [-] градиента отклонения органа продольного управления по перегрузки
+        \item [-] располагаемой нормальной перегрузки из условия балансировки.
+    \end{itemize}
+\end{enumerate}
+
+Для определения площади ГО ($S_\text{ГО}$) рассчитываются предельно передняя $\bar{X}_\text{ТПП}$ и предельного значения $\bar{X}_\text{ТПЗ}$ центровки.Расчёт предельно передней центровки ведётся для режима пасадки ($H = 0$ км, $M = 0,2$). Предельно передняя центровка вычисляется для указанного режима вычисляется по формуле
+
+\begin{equation}
+    \label{eq:Предельно передняя центровка}
+    \bar{X}_\text{ТПП} = \frac{-m_{z_0 \text{БГО}} + \bar{X}_{F \ \text{БГО}}  \cdot  C_{y \ \text{БГО}} + C_{y \ \text{ГО}} \cdot \bar{S}_\text{ГО} \cdot K_\text{ГО} \cdot \bar{L}_\text{ГО}}{C_{y \ \text{БГО}}}
+\end{equation}
+
+\begin{equation}
+    \label{eq:CyБГО}
+    C_{y \ \text{БГО}} = C_{y_0 \ \text{БГО}} + C_{y \text{БГО}}^\alpha \cdot \alpha
+\end{equation}  
+
+\begin{equation}
+    \label{eq:CyГО}
+    C_{y \ \text{ГО}} = C_{y \ \text{ГО}}^{\alpha_\text{ГО}}[\alpha(1 - \varepsilon^\alpha) + \varphi_\text{ЭФ}] < 0
+\end{equation}
+
+\begin{equation}
+    \label{eq:fiЭФ}
+    \varphi_\text{ЭФ} = \varphi_\text{уст} + n_B \cdot \delta_{max}
+\end{equation}
+
+Аэродинамические характеристики самолета без ГО и ВО для режима посадки указаны в исходных данных.
+
+Величина угла атаки при посадке (касании ВПП) приведена в разделе \ref{sec:Расчет взлетно-посадочных характеристик самолета}. Предельно задняя центровка вычисляется для режима $H=0$ км, $M=0,3$ по формуле
+
+\begin{equation}
+    \label{eq:Предельно задняя центровка}
+    \bar{X}_\text{ТПЗ} = \bar{X}_\text{Н} + \sigma_{n \ min}
+\end{equation}
+
+\begin{equation}
+    \label{eq:Нейтральная центровка}
+    \bar{X}_H = \bar{X}_F - \frac{m_z^{\bar{\omega}_z}}{\mu}
+\end{equation}
+
+\begin{equation}
+    \label{eq:Относительная плотность самолёта}
+    \mu = 2\frac{P_s}{\rho g b_a}
+\end{equation}
+
+\begin{equation}
+    \label{eq:Относительный коэффициент демпфирующего момента}
+    m_z^{\bar{\omega}_z} = m_z^{\bar{\omega}_{z \ \text{БГО}}} + m_z^{\bar{\omega}_{z \ \text{ГО}}}
+\end{equation}
+
+\begin{equation}
+    \label{eq:bar(wz)ГО}
+    m_z^{\bar{\omega}_z}_{\text{ГО}} = -C_{y \ \text{ГО}}^{\alpha_\text{ГО}} \bar{S}_\text{ГО} \bar{L}_\text{ГО} \sqrt{K_\text{ГО}}
+\end{equation}
+
+\begin{equation}
+    \label{eq:Относительная координата фокуса}
+    \bar{X}_F = \bar{X}_{F \ \text{БГО}} + \Delta \bar{X}_F
+\end{equation}
+
+\begin{equation}
+    \label{eq:Изменение относительной координаты фокуса}
+    \Delta \bar{X}_F \approx \frac{C_{y \ \text{ГО}}^{\alpha_\text{ГО}}}{C_y^\alpha} (1 - \varepsilon^\alpha) \bar{S}_\text{ГО} \bar{L}_\text{ГО} K_\text{ГО}
+\end{equation}
+
+$\sigma_{n_{min}} = 0,1 $,  для неманёвренных самолётов
+
+По приведенным выше формулам \ref{eq:Предельно передняя центровка} - \ref{eq:Изменение относительной координаты фокуса} для ряда значений $S_\text{ГО}$ (0.05,0.2) были рассчитаны предельно передняя и предельно задняя центровки.
+
+\begin{center}
+    Расчёт $\bar{S}_\text{ГО}$:
+\end{center}
+
+\begin{table}[H]
+    \centering
+        \caption{Предельная задняя и предельная передняя центровки }
+    \begin{tabular}{|c|c|c|}
+        \hline
+        $\bar{S}_\text{ГО}$ & 0,05 & 0,2\\ \hline
+        $\bar{X}_\text{ТПП}$ &  & \\ \hline
+        $\bar{X}_\text{ТПЗ}$ &  & \\ \hline
+    \end{tabular}
+    \label{tab:Предельная задняя и предельная передняя центровки}
+\end{table}
+
+Затем на одном рисунке строятся зависимости $\bar{X}_\text{ТПП}(\bar{S}_\text{ГО})$, $\bar{X}_\text{ТПЗ}(\bar{S}_\text{ГО})$ графически определяется потребная площадь ГО(см. рис.\ref{fig:Нахождение S_ГО}) из условия: $\bar{X}_\text{ТПЗ}(\bar{S}_\text{ГО}) -\bar{X}_\text{ТПП}(\bar{S}_\text{ГО}) = \Delta \bar{X}_\text{э} \cdot 1,2$, где $\Delta \bar{X}_\text{э}$ -- эксплуатационный разброс центровок 
+$\Delta \bar{X}_\text{э} \approx 0,15$ -- для неманёвренных самолётов.
+
+\begin{figure}[H]
+    \center{\includegraphics[width=\linewidth]{.jpg}}
+    \caption{Нахождение $\bar{X}^*_\text{ГО}$}
+    \label{fig:Нахождение S_ГО}
+\end{figure}
+
+Далее расчеты характеристик устойчивости и управляемости производятся для
+средней центровки: 
+
+\begin{equation}
+    \label{eq:Средняя центровка}
+    \bar{X}_T = \frac{1}{2} [\bar{X}_\text{ТПЗ}(\bar{S}^*_\text{ГО}) +\bar{X}_\text{ТПП}(\bar{S}^*_\text{ГО})]
+\end{equation}
+$\bar{S}_\text{ГО}^* = $
+
+Используя ранее приведённые уравнения получим:
+
+$\bar{X}_T = $
+
+При расчете зависимостей $\bar{X}_T(M)$, $\bar{X}_H(M)$, $\bar{X}_\text{ТПЗ}$ используются
+формулы \ref{eq:Предельно передняя центровка} - \ref{eq:Изменение относительной координаты фокуса} 
+
+Величина $\sigma_n$ определяется выражением 
+\begin{equation}
+    \label{eq:Коэффициент продольной статической устойчивости по перегрузке}
+    \sigma_n = \bar{X}_T - \bar{X}_F + \frac{m_z^{\bar{\omega}_z}}{\mu}
+\end{equation}
+
+Значения величин $\bar{X}_T$, $\bar{X}_F$, $\bar{X}_\text{ТПЗ}$,  $\sigma_n$ определяются в узловых точках $M$ на высоте $H = 0$ км. Результаты данного расчёта оформлены в виде таблицы \ref{tab:Результаты расчётов балансировки в продольном канале}  
+
+\begin{figure}[H]
+    \center{\includegraphics[width=\linewidth]{.jpg}}
+    \caption{Представление результатов расчета в виде графиков}
+    \label{fig:Результаты расчётов балансировки в продольном канале}
+\end{figure}
+
+Зависимости $\varphi_\text{бал}(M)[\delta_\text{бал}(V)]$, $\varphi^n(M)[\delta^n(V)]$, $n_{y_P}(M)[n_{y_P}(V)]$ определяютс для трёх значений: $H = 0$ км, $H = 6$ км и высоты крейсерского полёта $H_\text{кр}$, найденных в разделе \ref{sec:Расчет летно-технических характеристик самолета} 
+\begin{center}
+    Вычисление балансировочного значения руля высоты:
+\end{center}
+
+\begin{equation}
+    \label{eq:Балансировочное значение руля высоты}
+    \delta_\text{бал} = -\frac{m_{x_0}+m^{C_{y \ \text{ГП}}}_{z_{C_{y \ \text{ГП}}}}}{m_z^\delta(1 + \frac{m_z^{C_y}}{\bar{L}_\text{ГО}})}-\frac{\varphi_\text{уст}}{n_\text{В}}
+\end{equation}
+
+$$\bar{m} = 1 - \bar{m}_T - \text{относительная масса самолёта}$$
+
+\begin{equation}
+    \label{eq:ГП балансировка}
+    C_{y_\text{ГП}} = \frac{P_s \cdot \bar{m}}{q}
+\end{equation}
+
+\begin{equation}
+    \label{eq:mzCy}
+    m_z^{C_y} = \bar{X}_T - \bar{X}_F
+\end{equation}
+
+\begin{equation}
+    \label{eq:Расход руля высоты}
+    n_B = \frac{C_y^\delta}{C_y^\varphi}
+\end{equation}
+
+\begin{equation}
+    \label{eq:Балансировочное значение коэффициента нулевого продольного момента}
+    m_{z_0} = m_{z_{0 \ \text{БГО}}} - \bar{S}_\text{ГО} \bar{L}_\text{ГО} K_\text{ГО} C^{\alpha_\text{ГО}}_{y_\text{ГО}} \alpha_0(1 - \varepsilon^\alpha)
+\end{equation}
+
+\begin{center}
+    Вычисление отклонения стабилизатора на единицу перегрузки:
+\end{center}
+
+\begin{equation}
+    \label{eq:delta_n}
+    \delta^n = -\frac{C_{y_\text{ГП}} \cdot \sigma_n}{m_z^\delta}
+\end{equation}
+
+\begin{equation}
+    \label{eq:mzdelta}
+    m_z^\delta = -C^{\alpha_\text{ГП}}_{y_\text{ГП}} \bat{S}_\text{ГП} \bar{L}_\text{ГП} K_\text{ГП} n_B
+\end{equation}
+
+\begin{center}
+    Вычисление отклонения стабилизатора на единицу перегрузки:
+\end{center}
+
+\begin{equation}
+    \label{eq:Располагаемая перегрузка}
+    n_{y_\text{Р}} = 1 + \frac{(\delta_{max}) - (\delta_\text{бал})}{\delta^n}
+\end{equation}
+
+Результаты расчетов оформлены в виде таблиц \ref{tab:} - \ref{tab:}
+
+
+

@@ -1,0 +1,130 @@
+
+\subsection{Расчет взлетно-посадочных характеристик самолета}
+\label{sec:Расчет взлетно-посадочных характеристик самолета}
+\subsubsection{Расчетные формулы и соотношения}
+
+Расчет взлетно-посадочных характеристик производится при следующих
+предположениях: 
+$\alpha_\text{р} = \alpha_\text{п} = 2^0$ -- угол атаки при разбеге и пробеге \\
+$\alpha_\text{отр} = \alpha_\text{кас} = 6^0$ -- угол атаки при отрыве (во время взлёта) и качания ВПП (при пасадке).\\
+$H_\text{взл} = 10,7$м, $H_\text{пос} = 15$м -- безопасная высота пролёта препятствий \\
+$f_\text{р}$ -- коэффициент трения при разбеге \\
+$f_\text{пр} = 0,2$ -- коэффициент трения при пробеге (с учётом тормозной системы), \\
+тфга двигателя на взлётном режиме на 15...20\% больше наминальной тяги, при пробеге по ВПП на неманевренном самолёте используется режим "реверса тяги". \\
+
+Скорость отрыва на взлёте -- 
+\begin{equation}
+    \label{eq:Скорость отрыва}
+    V_\text{отр} = \sqrt{\frac{20P_s(1-0,9\bar{P}_\text{взл}\sin{\alpha_\text{отр}})}{\rho_0C_{y_\text{отр}}}}
+\end{equation}
+
+Длина разбега -- 
+\begin{equation}
+    \label{eq:Длина разбега}
+    L_\text{р} = \frac{1}{2gb_\text{р}}\ln{\frac{C_\text{p}}{C_\text{р}-b_\text{р}V^2_\text{отр}}}
+\end{equation}
+
+Коэффициент тяги -- 
+\begin{equation}
+    \label{eq:Коэффициент тяги}
+    C_\text{р} = 0,9 \bat{P}_\text{взл}-f_\text{р}
+\end{equation}
+
+Коэффициент при расчёте длины разега -- 
+\begin{equation}
+    \label{eq:Коэффициент при расчёте длины разега}
+    b_\text{р} = (C_{x_\text{р}}-f_\text{р}C_{y_\text{р}})\frac{\rho_0}{2P_s10}
+\end{equation}
+
+Взлётная дистанция -- 
+\begin{equation}
+    \label{eq:Взлётная дистанция}
+    L_\text{вд} = L_\text{р} + L_\text{вув}
+\end{equation}
+
+Длина воздушного участка взлёта
+\begin{equation}
+    \label{eq:Длина воздушного участка взлёта}
+    L_\text{вув} = \frac{1}{\hat{n}_{x_\text{ср}}}(\frac{V_2^2-V^2_\text{отр}}{2g}+H_\text{взл})
+\end{equation}
+
+Среднеквадратичное значение скорости -- 
+\begin{equation}
+    \label{eq:Среднеквадратичное значение скорости}
+    \hat{V}_\text{ср} = \sqrt{\frac{V_2^2-V^2_\text{отр}}{2}}
+\end{equation}
+
+Скорость качания ВПП -- 
+\begin{equation}
+    \label{eq:Скорость качания ВПП}
+    V_\text{кас} = \sqrt{\frac{2\bar{m}_\text{пос}P_s10}{C_{y_\text{кас}}\rho_0}}
+\end{equation}
+
+Относительная масса -- 
+\begin{equation}
+    \label{eq:Относительная масса}
+    \bar{m}_\text{пос} = \mkkr-\mtcnp
+\end{equation}
+
+Длина пробега -- 
+\begin{equation}
+    \label{eq:Длина пробега}
+    L_\text{проб} = \frac{1}{2gb_\text{п}}\ln{\frac{a_\text{п}-b_\text{п}V^2_\text{кас}}{a_\text{п}}}
+\end{equation}
+
+Коэффициенты пробега -- 
+\begin{equation}
+    \label{eq:Коэффициент пробега1}
+    a_\text{п} = -\bar{P}_\text{рев} - f_\text{п}
+\end{equation}
+
+\begin{equation}
+    \label{eq:Коэффициент пробега2}
+    b_\text{п} = \frac{\rho_0}{\bar{m}_\text{пос}P_s20}(C_{x_\text{проб}}-f_\text{п}C_{y_\text{проб}})
+\end{equation}
+
+Относительный реверс тяги на посадке -- 
+\begin{equation}
+    \label{eq:Относительный реверс тяги на посадке}
+    \bar{P}_\text{рев} = \frac{P_\text{рев}}{m_\text{пос}g}
+\end{equation}
+
+Посадочная дистанция -- 
+\begin{equation}
+    \label{eq:Посадочная дистанция}
+    L_\text{пд} = L_\text{проб} + L_\text{вуп}
+\end{equation}
+
+Длина воздушного участка посадки -- 
+\begin{equation}
+    \label{eq:Длина воздушного участка посадки}
+        L_\text{вуп} = K_\text{пос}(\frac{V_\text{пл}^2-V^2_\text{кас}}{2g}+H_\text{пос})
+\end{equation}
+ 
+ Скорость планирования -- 
+ \begin{equation}
+     \label{eq:Скорость планирования}
+     V_\text{пл} = \sqrt{\frac{2\bar{m}_\text{пос}P_s10}{C_{y_\text{пос}}\rho_0}}
+ \end{equation}
+ 
+ Аэродинамическое качество при посадке -- 
+ \begin{equation}
+     \label{eq:Аэродинамическое качество при посадке}
+     K_\text{пос} = \frac{C_{y_\text{пос}}}{C_{x_\text{пос}}}
+ \end{equation}
+ 
+ \subsection{Результаты расчёта}
+ 
+ \begin{table}[H]
+     \centering
+     \caption{Результаты расчета взлетно-посадочных характеристик самолета Concorde}
+     \begin{tabular}{|c|c|c|c|c|c|}
+     \hline
+          $V_\text{отр}, $ м/c& $L_\text{р},$ м & $L_\text{вд},$ м& $V_\text{кас},$ м/с  &$L_\text{проб},$ м  &$L_\text{пд},$ м\\ \hline
+          88,85& 1125,37 & 1392 & 64,58 & 576 &1200,78\\ \hline
+     \end{tabular}
+     \label{tab:my_label}
+ \end{table}
+
+
+  
