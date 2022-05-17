@@ -15,3 +15,12 @@ sys = ss(A,B,C,D);
 sys.StateName = {'Vx', 'Vy', 'wz', 'tangazh'};
 sys.OutputName = {'Vx', 'Vy', 'wz', 'tangazh'};
 sys.inputname = {'stab'}; 
+e = 0.8;
+
+A(1,:) = e*A(1,:);
+A(2,:) = e*A(2,:);
+A(3,:) = e*A(3,:);
+B = e*B;
+
+
+

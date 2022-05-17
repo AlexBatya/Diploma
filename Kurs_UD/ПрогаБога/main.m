@@ -1,7 +1,8 @@
 clear
 global aa mass pa S ba Jz mz_wz1 Cy_Alpha1 X_Tzv X_Fe1 X_T X_F1 Cy_AlphaE1 M11 Ha 
 % load('Area_of_possible_flights.mat');
-load('Area_of_possible_flights2.mat');
+% load('Area_of_possible_flights2.mat');
+load('Area_of_possible_flights3.mat');
 load('Aerodynamics.mat');
 load('AtmosphereStandard.mat');
 S=360;
@@ -12,8 +13,8 @@ X_Tzv=0.25;
 
 mah=0.521;
 height=10000;
-number=10000;
-h_h=50;
+number=10;
+h_h=2000;
 
 
 [A,B,C,D]=StateSpace(mah,height);
@@ -39,25 +40,25 @@ end
 
 
 [Drive,w]=DriveParameters(M5,H);
-% [Mz_wz, Mz_Alpha, Ya_Alpha Mz_deltaB V q sigma_n] = AllCalculations(M5,H);  
-[Mz_wz, Mz_Alpha, Ya_Alpha Mz_deltaB V q sigma_n] = AllCalculations(mah,height);  
-[W_raz,K_v,K_wz,K_H,Kp,Ki]=Synthesis_of_ACS(mah,height,w)
-W_zam = feedback(W_raz,1);
+[Mz_wz, Mz_Alpha, Ya_Alpha Mz_deltaB V q sigma_n] = AllCalculations(M5,H);  
+% [Mz_wz, Mz_Alpha, Ya_Alpha Mz_deltaB V q sigma_n] = AllCalculations(mah,height);  
+% [W_raz,K_v,K_wz,K_H,Kp,Ki]=Synthesis_of_ACS(mah,height,w)
+% W_zam = feedback(W_raz,1);
 
-Wwz_raz1 = Drive * tf(diffura(2))* -K_wz ;%с САУ
-Wwz_raz2 =- Drive * tf(diffura(2)); %без САУ
-Wwz_zam1 = feedback(Drive* tf(diffura(2)),-K_wz);
-Wwz_zam2 = feedback(Drive* tf(diffura(2)),-1);
+% Wwz_raz1 = Drive * tf(diffura(2))* -K_wz ;%с САУ
+% Wwz_raz2 =- Drive * tf(diffura(2)); %без САУ
+% Wwz_zam1 = feedback(Drive* tf(diffura(2)),-K_wz);
+% Wwz_zam2 = feedback(Drive* tf(diffura(2)),-1);
 
-Wv_raz1 = Wwz_zam1* 1/p * -K_v;
-Wv_raz2 = Wwz_zam1 * -1/p;
-Wv_zam1 = feedback(Wv_raz1,1);
-Wv_zam2 = feedback(Wv_raz1,1);
+% Wv_raz1 = Wwz_zam1* 1/p * -K_v;
+% Wv_raz2 = Wwz_zam1 * -1/p;
+% Wv_zam1 = feedback(Wv_raz1,1);
+% Wv_zam2 = feedback(Wv_raz1,1);
 
-WVy_raz1 = Wv_zam1 * K_H/(p/Ya_Alpha+1) *(Kp+1/p*Ki);
-WVy_raz2 = -Wv_zam2 *  K_H/(p/Ya_Alpha+1);
-WVy_zam1 = feedback(WVy_raz1,1);
-WVy_zam2 = feedback(WVy_raz2,1);
+% WVy_raz1 = Wv_zam1 * K_H/(p/Ya_Alpha+1) *(Kp+1/p*Ki);
+% WVy_raz2 = -Wv_zam2 *  K_H/(p/Ya_Alpha+1);
+% WVy_zam1 = feedback(WVy_raz1,1);
+% WVy_zam2 = feedback(WVy_raz2,1);
 % % _____________________________________________________________
 % FreqName3qmax = 'img/ZAM qMAX.jpg';
 % FreqName3qmax = 'img/ZAM qMIN.jpg';
@@ -104,12 +105,12 @@ WVy_zam2 = feedback(WVy_raz2,1);
 
 
 
-% [n,m]=size(M5);
-% for i=1:n
-%     for j=1:m
-%     [W_raz,K_v(i,j),K_wz(i,j),K_H(i,j),i_p(i,j),i_H(i,j)]=Synthesis_of_ACS(M5(i,j),H(i),w);
-%     end
-% end
+[n,m]=size(M5);
+for i=1:n
+    for j=1:m
+    [W_raz,K_v(i,j),K_wz(i,j),K_H(i,j),i_p(i,j),i_H(i,j)]=Synthesis_of_ACS(M5(i,j),H(i),w);
+    end
+end
 
 % MAX = table(M5);
 % writetable(MAX,'Kurs_UD/ПрогаБога/python/Data/MAX.xlsx');

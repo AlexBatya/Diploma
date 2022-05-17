@@ -18,11 +18,15 @@ function [W_raz,K_v,K_wz,K_H,Kp,Ki]=Synthesis_of_ACS(mah,height,w0_max)
     while ~answer 
         Wwz_raz1 = Drive* tf(diffura(2)) * -K_wz;  
         [L,fi,wsr] = margin(Wwz_raz1);
-        if abs(20*log10(L)-stocks)<=0.2
+        abs(20*log10(L))
+        if abs(20*log10(L)-stocks)<=0.5
             K_wz=e*K_wzGr;
             answer = true ;
-        else 
+        elseif abs(20*log10(L))> stocks
             e = e + 0.01;
+            K_wz=e*K_wzGr;
+        elseif abs(20*log10(L))< stocks
+            e = e - 0.01;
             K_wz=e*K_wzGr;
         end
     end 
@@ -32,14 +36,19 @@ function [W_raz,K_v,K_wz,K_H,Kp,Ki]=Synthesis_of_ACS(mah,height,w0_max)
     while(~answer)
         Wv_raz1 = Wwz_zam1* 1/p * -K_v;
         [L,fi,wsr] = margin(Wv_raz1);
-        if(abs(20*log10(L))-stocks) <=0.01
+        abs(20*log10(L))
+        if(abs(20*log10(L))-stocks) <=0.5
             K_v=nu*K_wz;
-            answer = true  ;
-        else
-            nu = nu + 0.01;
-            K_v=nu*K_wz; 
+            answer = true ; 
+        elseif abs(20*log10(L))> stocks
+            e = e + 0.01;
+            K_v=e*K_wzGr;
+        elseif abs(20*log10(L))< stocks
+            e = e - 0.01;
+            K_v=e*K_wzGr;
         end
     end 
+
     Wv_raz1 = Wwz_zam1* 1/p * -K_v;   
     
     Wv_zam1 = feedback(Wv_raz1,1);
