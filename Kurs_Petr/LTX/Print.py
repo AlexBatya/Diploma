@@ -37,10 +37,11 @@ qkkr.columns.name = 'H,м/M'
 
 M_interp = np.arange(M1[0],M1[-1],0.01)
 
+
 LatexTable(VV,'texi/V','V',r'Результаты расчётов $V(M,H)$ м/с',1)
 LatexTable(qq,'texi/q','q',r'Результаты расчётов $q(M,H)$, \cdot 10^{-4}$ Н/м$^2$',2)
 LatexTable(Cyy,'texi/Cy','Cy',r'Результаты расчётов $C_y(M,H)$',3)
-LatexTable(Cxx,'texi/Cx','Cx',r'Результаты расчётов $C_x(M,H)$',3)
+LatexTable(Cxx,'texi/Cx','Cx',r'Результаты расчётов $C_x(M,H)$',4)
 LatexTable(KK,'texi/K','K',r'Результаты расчётов $K(M,H)$',2)
 LatexTable(pp,'texi/Pp','Pp',r'Результаты расчётов $P_\text{п}(M,H) \cdot 10^{-5},$ Н$',2)
 LatexTable(pr,'texi/Pr','Pr',r'Результаты расчётов $P_\text{р}(M,H) \cdot 10^{-5},$ Н$',2)

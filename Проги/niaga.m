@@ -2,7 +2,7 @@ clc;
 clear;
 global m S g P_0 H p1 a1 k M A C_xm H1 M1 p1 p11 P1
 q_ind=5*10^5;
-V_ind=sqrt(2*q_ind/1.225)
+V_ind=sqrt(2*q_ind/1.225);
 m=180000;
 Ps=4905;
 g=9.81;
