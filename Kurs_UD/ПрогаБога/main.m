@@ -16,7 +16,6 @@ height=10000;
 number=10;
 h_h=2000;
 
-
 [A,B,C,D]=StateSpace(mah,height);
 diffura=ss(A,B,C,D);
 diffura.StateName = {'Alpha', 'wz', 'Vy'};
