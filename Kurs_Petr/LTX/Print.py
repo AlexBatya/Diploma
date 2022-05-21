@@ -1,5 +1,5 @@
 import sys
-
+import numpy as np 
 sys.path.insert(0,"../")
 from Expenses import qh,qkm
 from VerticalSpeed import Vy,nx
@@ -37,8 +37,9 @@ qkkr.columns.name = 'H,м/M'
 
 M_interp = np.arange(M1[0],M1[-1],0.01)
 
+sys.path.append('/Users/aleksejpasenko/Desktop/Diploma')
 
-LatexTable(VV,'texi/V','V',r'Результаты расчётов $V(M,H)$ м/с',1)
+LatexTable(VV,r'Diploma/V','V',r'Результаты расчётов $V(M,H)$ м/с',1)
 LatexTable(qq,'texi/q','q',r'Результаты расчётов $q(M,H)$, \cdot 10^{-4}$ Н/м$^2$',2)
 LatexTable(Cyy,'texi/Cy','Cy',r'Результаты расчётов $C_y(M,H)$',3)
 LatexTable(Cxx,'texi/Cx','Cx',r'Результаты расчётов $C_x(M,H)$',4)
@@ -118,8 +119,10 @@ Mqh_min = []
 Mqkm_min = []
 MCy_dop = []
 M_pred = [] 
+
 M_interp = np.arange(M1[0],M1[-1],0.0001)
-H_interp = np.arange(H1[0],19800,400)
+H_interp = np.arange(H1[0],19800,500)
+
 P_rasp = Pr(M_interp,H_interp)
 P_potr = Pp(M_interp,H_interp)
 V_y = Vy(M_interp,H_interp)

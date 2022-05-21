@@ -13,52 +13,52 @@ function [W_raz,K_v,K_wz,K_H,Kp,Ki]=Synthesis_of_ACS(mah,height,w0_max)
     K_v=nu*K_wz;
     K_H=V;
     stocks = 12;
-    % answer = false; 
-    % while(~answer)
-    %     if(nu<=Ya_Alpha)
-    %         nu=nu+0.01;
-    %     else
-    %         nu=nu-0.01;
-    %     end
-    %     if(abs(nu-Ya_Alpha)<=0.2)
-    %         K_v=nu*K_wz;
-    %         answer=true;
-    %     end
-    % end
-    answer = false;
-    while ~answer 
-        Wwz_raz1 = Drive* tf(diffura(2)) * -K_wz;  
-        [L,fi,wsr] = margin(Wwz_raz1);
-        % abs(20*log10(L))
-        if abs(20*log10(L)-stocks)<=0.1
-            K_wz=e*K_wzGr;
-            answer = true ;
-        elseif abs(20*log10(L))> stocks
-            e = e + 0.01;
-            K_wz=e*K_wzGr;
-        elseif abs(20*log10(L))< stocks
-            e = e - 0.01;
-            K_wz=e*K_wzGr;
+    answer = false; 
+    while(~answer)
+        if(nu<=Ya_Alpha)
+            nu=nu+0.01;
+        else
+            nu=nu-0.01;
         end
-    end 
+        if(abs(nu-Ya_Alpha)<=0.2)
+            K_v=nu*K_wz;
+            answer=true;
+        end
+    end
+    % answer = false;
+    % while ~answer 
+    %     Wwz_raz1 = Drive* tf(diffura(2)) * -K_wz;  
+    %     [L,fi,wsr] = margin(Wwz_raz1);
+    %     % abs(20*log10(L))
+    %     if abs(20*log10(L)-stocks)<=0.1
+    %         K_wz=e*K_wzGr;
+    %         answer = true ;
+    %     elseif abs(20*log10(L))> stocks
+    %         e = e + 0.01;
+    %         K_wz=e*K_wzGr;
+    %     elseif abs(20*log10(L))< stocks
+    %         e = e - 0.01;
+    %         K_wz=e*K_wzGr;
+    %     end
+    % end 
     Wwz_zam1 = feedback(Drive* tf(diffura(2)),-K_wz);
     answer = false;
 
-    while(~answer)
-        Wv_raz1 = Wwz_zam1* 1/p * -K_v;
-        [L,fi,wsr] = margin(Wv_raz1);
-        % abs(20*log10(L))
-        if(abs(20*log10(L))-stocks) <=0.1
-            K_v=nu*K_wz;
-            answer = true ; 
-        elseif abs(20*log10(L))> stocks
-            e = e + 0.01;
-            K_v=e*K_wzGr;
-        elseif abs(20*log10(L))< stocks
-            e = e - 0.01;
-            K_v=e*K_wzGr;
-        end
-    end 
+    % while(~answer)
+    %     Wv_raz1 = Wwz_zam1* 1/p * -K_v;
+    %     [L,fi,wsr] = margin(Wv_raz1);
+    %     % abs(20*log10(L))
+    %     if(abs(20*log10(L))-stocks) <=0.1
+    %         K_v=nu*K_wz;
+    %         answer = true ; 
+    %     elseif abs(20*log10(L))> stocks
+    %         e = e + 0.01;
+    %         K_v=e*K_wzGr;
+    %     elseif abs(20*log10(L))< stocks
+    %         e = e - 0.01;
+    %         K_v=e*K_wzGr;
+    %     end
+    % end 
 
     Wwz_zam1 = feedback(Drive* tf(diffura(2)),-K_wz);
     Wv_raz1 = Wwz_zam1* 1/p * -K_v;
