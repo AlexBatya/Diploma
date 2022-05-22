@@ -5,11 +5,11 @@ title('Входной сигнал');
 grid; 
 xlabel('t, c');
 ylabel('V_{y_{Зад}}, м/с');
-saveas(A,'NotLin/Линейный ВС.jpg');
+saveas(A,'ОтчётLatex/Оглавление/Part2/Sactions/Content/NotLinFig/Линейный ВС.jpg');
 
 B=figure;
 B.Position(3:4)=[1200,3000];
-subplot(1,2,1);plot(t,deltaNotLin*57.3);
+subplot(1,2,1);plot(t,delta*57.3);
 title('Нелинейное отклонение элевонов');
 grid; 
 xlabel('t, c');
@@ -19,11 +19,11 @@ title('Линейное отклонение элевонов')
 grid;
 xlabel('t, c');
 ylabel('\Delta\delta_{э}, град');
-saveas(B,'NotLin/Руль.jpg');
+saveas(B,'ОтчётLatex/Оглавление/Part2/Sactions/Content/NotLinFig/Руль.jpg');
 
 C=figure;
 C.Position(3:4)=[1200,3000];
-subplot(1,2,1);plot(t,wzNotLin*57.3);
+subplot(1,2,1);plot(t,wz*57.3);
 title('Нелинейное изменение угловой скорости тангажа');
 grid; 
 xlabel('t, c');
@@ -33,11 +33,11 @@ title('Линейное изменение угловой скорости та�
 grid;
 xlabel('t, c');
 ylabel('\Delta\omega_{z}, град/c');
-saveas(C,'NotLin/wz.jpg');
+saveas(C,'ОтчётLatex/Оглавление/Part2/Sactions/Content/NotLinFig/wz.jpg');
 
 D=figure;
 D.Position(3:4)=[1200,3000];
-subplot(1,2,1);plot(t,varthetaNotLin*57.3);
+subplot(1,2,1);plot(t,vartheta*57.3);
 title('Нелинейное изменение тангажа');
 grid; 
 xlabel('t, c');
@@ -47,11 +47,11 @@ title('Линейное изменение тангажа')
 grid;
 xlabel('t, c');
 ylabel('\Delta\vartheta, град');
-saveas(D,'NotLin/vartheta.jpg');
+saveas(D,'ОтчётLatex/Оглавление/Part2/Sactions/Content/NotLinFig/vartheta.jpg');
 
 E=figure;
 E.Position(3:4)=[1200,3000];
-subplot(1,2,1);plot(t,VyNotLin);
+subplot(1,2,1);plot(t,Vy);
 title('Нелинейное изменение вертикальной скорости');
 grid; 
 xlabel('t, c');
@@ -61,5 +61,5 @@ title('Линейное изменение вертикальной скорос
 grid;
 xlabel('t, c');
 ylabel('\Delta V_y, м/с');
-saveas(E,'NotLin/Vy.jpg');
+saveas(E,'ОтчётLatex/Оглавление/Part2/Sactions/Content/NotLinFig/Vy.jpg');
 

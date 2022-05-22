@@ -14,7 +14,7 @@ X_Tzv=0.25;
 mah=1;
 height=10000;
 number=10;
-h_h=2000;
+h_h=1000;
 
 [A,B,C,D]=StateSpace(mah,height);
 diffura=ss(A,B,C,D);
