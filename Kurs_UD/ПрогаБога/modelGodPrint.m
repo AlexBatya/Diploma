@@ -9,7 +9,7 @@ saveas(A,'ОтчётLatex/Оглавление/Part2/Sactions/Content/NotLinFig/
 
 B=figure;
 B.Position(3:4)=[1200,3000];
-subplot(1,2,1);plot(t,delta*57.3);
+subplot(1,2,1);plot(t,deltaNotLin*57.3);
 title('Нелинейное отклонение элевонов');
 grid; 
 xlabel('t, c');
@@ -23,7 +23,7 @@ saveas(B,'ОтчётLatex/Оглавление/Part2/Sactions/Content/NotLinFig/
 
 C=figure;
 C.Position(3:4)=[1200,3000];
-subplot(1,2,1);plot(t,wz*57.3);
+subplot(1,2,1);plot(t,wzNotLin*57.3);
 title('Нелинейное изменение угловой скорости тангажа');
 grid; 
 xlabel('t, c');
@@ -37,7 +37,7 @@ saveas(C,'ОтчётLatex/Оглавление/Part2/Sactions/Content/NotLinFig/
 
 D=figure;
 D.Position(3:4)=[1200,3000];
-subplot(1,2,1);plot(t,vartheta*57.3);
+subplot(1,2,1);plot(t,varthetaNotLin*57.3);
 title('Нелинейное изменение тангажа');
 grid; 
 xlabel('t, c');
@@ -51,7 +51,7 @@ saveas(D,'ОтчётLatex/Оглавление/Part2/Sactions/Content/NotLinFig/
 
 E=figure;
 E.Position(3:4)=[1200,3000];
-subplot(1,2,1);plot(t,Vy);
+subplot(1,2,1);plot(t,VyNotLin);
 title('Нелинейное изменение вертикальной скорости');
 grid; 
 xlabel('t, c');
