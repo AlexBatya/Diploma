@@ -1,10 +1,24 @@
 fileName = 'doubleAll.xlsx';
 
 writematrix(K_H,fileName,'Sheet','K_H');
+writematrix(M5,fileName,'Sheet','M5');
 writematrix(i_H,fileName,'Sheet','i_H');
 writematrix(i_p,fileName,'Sheet','i_p');
 writematrix(K_v,fileName,'Sheet','K_v');
 writematrix(K_wz,fileName,'Sheet','K_wz');
+writematrix(q,fileName,'Sheet','q');
+writematrix(Ya_Alpha,fileName,'Sheet','Ya_alpha');
+writematrix(w0,fileName,'Sheet','w0');
+[n,m] = size(K_wz);
+% filee = fopen('test.tex','w'); % Вернуться к этому дерьму, эта хрень для latex
+% for i = 1:n
+%     for j = 1:m
+%         a = string(K_wz(i,j))+' & ';
+%         fprintf(filee,a);
+%     end
+%     fprintf(filee,convertCharsToStrings("\\ \hhline"));
+% end
+% fclose(file);
 markers = ['o','v','^','<','>','.','*','+','x','p','P','X','O','V','|','h','H','_',"pentagram",'hexagram','square'];
 A = figure;
 for i = 1:length(H)
@@ -14,7 +28,7 @@ end
 grid
 legend('H = '+string(H)+' км')
 ylabel('K_\omega_z, c')
-xlabel('q, Н/м$^2')
+xlabel('q, Н/м^2')
 saveas(A,'ОтчётLatex/Оглавление/Part2/Sactions/Content/figures/K_wz.jpg')
 
 
@@ -47,7 +61,7 @@ for i = 1:length(H)
 end
 grid
 legend('H = '+string(H)+' км')
-ylabel('i_H, 1/c')
+ylabel('i_H, 1/м')
 xlabel('q, Н/м^2')
 
 saveas(A,'ОтчётLatex/Оглавление/Part2/Sactions/Content/figures/i_H.jpg')
@@ -58,7 +72,7 @@ for i = 1:length(H)
 end
 grid
 legend('H = '+string(H)+' км')
-ylabel('i_p, 1/c')
+ylabel('i_p, 1/м')
 xlabel('q, Н/м^2')
 
 saveas(A,'ОтчётLatex/Оглавление/Part2/Sactions/Content/figures/i_p.jpg')

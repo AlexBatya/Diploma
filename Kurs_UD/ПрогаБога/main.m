@@ -11,8 +11,8 @@ mass=180000;
 Jz=7.7*10^6;
 X_Tzv=0.25;
 
-mah=1;
-height=10000;
+mah=1.0976;
+height=0;
 number=10;
 h_h=1000;
 
@@ -38,7 +38,7 @@ end
 
 
 
-[Drive,w]=DriveParameters(M5,H);
+[Drive,w,w0]=DriveParameters(M5,H);
 [Mz_wz, Mz_Alpha, Ya_Alpha Mz_deltaB V q sigma_n] = AllCalculations(M5,H);  
 % [Mz_wz, Mz_Alpha, Ya_Alpha Mz_deltaB V q sigma_n] = AllCalculations(mah,height);  
 % [W_raz,K_v,K_wz,K_H,Kp,Ki]=Synthesis_of_ACS(mah,height,w)
@@ -55,10 +55,10 @@ end
 % Wv_zam2 = feedback(Wv_raz1,1);
 
 % WVy_raz1 = Wv_zam1 * K_H/(p/Ya_Alpha+1) *(Kp+1/p*Ki);
-% WVy_raz2 = -Wv_zam2 *  K_H/(p/Ya_Alpha+1);
+% WVy_raz2 = Wv_zam2 *  K_H/(p/Ya_Alpha+1);
 % WVy_zam1 = feedback(WVy_raz1,1);
 % WVy_zam2 = feedback(WVy_raz2,1);
-% % _____________________________________________________________
+% _____________________________________________________________
 % FreqName3qmax = 'ОтчётLatex/Оглавление/Part2/Sactions/Content/frequencies/ZAM qMAX.jpg';
 % FreqName3qmax = 'ОтчётLatex/Оглавление/Part2/Sactions/Content/frequencies/ZAM qMIN.jpg';
 % FreqName3qmax = 'ОтчётLatex/Оглавление/Part2/Sactions/Content/frequencies/ZAM qKR.jpg';
