@@ -75,7 +75,7 @@ method = 'cubic'
 
 M_min = [] 
 M_max = []
-Mnae = [0.993,0.897,0.743,0.631,0.54,0.466,0.405,0.355,0.312,0.276]
+Mnae = [0.928,0.863,0.746,0.641,0.528,0.473,0.41,0.359,0.316,0.28]
 HV = [17000,16000,14000,12000,10000,8000,6000,4000,2000,0]
 
 H5 = [Hk]
@@ -163,9 +163,9 @@ f.close()
 
 H = np.delete(H5,-1)
 
+print(summa(dL_spusk))
 print(summa(dt_spusk))
 print(summa(dmt_spusk))
-print(summa(dL_spusk))
 
 dVdH = np.round(dVdH,4)
 teta_spusk = np.round(teta_spusk,2)
@@ -182,68 +182,68 @@ Vy_spusk = Vy_spusk[0]
 nx_cred = nx_cred[0]
 Vy_cred = Vy_cred[0]
 
-# Array = [H5,dVdH,teta_spusk,Vy_spusk,dHe,nx_cred,Vy_cred]
-# Array = [*map(list, zip(*Array))]
-# f = open('tables/РезультатыСнижение2.tex','w') 
-# for i in range(len(H5)):
-#     for j in range(len(Array[i])):
-#         if Array[i][j] == Array[i][-1]:
-#             f.write(str(Array[i][j]))
-#         else:
-#             f.write(str(Array[i][j])+' & ')
-#     if Array[i] == Array[-1]:  
-#         f.write(str(''))
-#     else:
-#         f.write(str(r' \\ \hline '))
-# f.close()
+Array = [H5,dVdH,teta_spusk,Vy_spusk,dHe,nx_cred,Vy_cred]
+Array = [*map(list, zip(*Array))]
+f = open('tables/РезультатыСнижение2.tex','w') 
+for i in range(len(Array)):
+    for j in range(len(Array[i])):
+        if Array[i][j] == Array[i][-1]:
+            f.write(str(Array[i][j]))
+        else:
+            f.write(str(Array[i][j])+' & ')
+    if Array[i] == Array[-1]:  
+        f.write(str(''))
+    else:
+        f.write(str(r' \\ \hline '))
+f.close()
 
 
-# L = []
-# T = []
-# mama = []
-# summa1(dL_spusk,L)
-# summa1(dt_spusk,T)
-# summa1(dmt_spusk,mama)
-# # H = np.append(H5,Hk)
+L = []
+T = []
+mama = []
+summa1(dL_spusk,L)
+summa1(dt_spusk,T)
+summa1(dmt_spusk,mama)
+# H = np.append(H5,Hk)
 
-# plt.plot(T,np.multiply(L,100),'--',T,H5,T,mama,'-.')
-# plt.grid()
-# plt.legend((r'$L \cdot 10^{-2}$ км',r'$H$, м',r'$m_{T_{спуск}}$, кг'))
-# plt.xlabel('t,мин')
-# plt.savefig('figs/Характеристики Спуска1'+'.jpg')
-# plt.show()
+plt.plot(T,np.multiply(L,100),'--',T,H5,T,mama,'-.')
+plt.grid()
+plt.legend((r'$L \cdot 10^{-2}$ км',r'$H$, м',r'$m_{T_{спуск}}$, кг'))
+plt.xlabel('t,мин')
+plt.savefig('figs/Характеристики Спуска1'+'.jpg')
+plt.show()
 
-# T = np.delete(T,-1)
-# # H = np.delete(H,-1)
+T = np.delete(T,-1)
+# H = np.delete(H,-1)
 
-# fig, ax = plt.subplots()
-# ax.plot(T,Vy_spusk,marker ='^')
-# ax.plot(T,teta_spusk,marker = 's')
-# ax.plot(T,H/1000,marker = 'x')
-# ax.plot(T,M5(H),marker = 'o')
-# plt.grid()
-# plt.legend((r'$V_y^*$, м/c', r'$\theta$, град',r'H, км',r'M' ))
-# plt.xlabel('t,мин')
-# plt.savefig('figs/Характеристики пуска2'+'.jpg')
-# plt.show()
+fig, ax = plt.subplots()
+ax.plot(T,Vy_spusk,marker ='^')
+ax.plot(T,teta_spusk,marker = 's')
+ax.plot(T,H/1000,marker = 'x')
+ax.plot(T,M5(H),marker = 'o')
+plt.grid()
+plt.legend((r'$V_y^*$, м/c', r'$\theta$, град',r'H, км',r'M' ))
+plt.xlabel('t,мин')
+plt.savefig('figs/Характеристики пуска2'+'.jpg')
+plt.show()
 
-# H = [0,11,12.3,0]
-# L = [77.2,5909,314]
+H = [0,17,19.3,0]
+L = [278.04,7610,314.16]
 
-# H1 = [] 
-# L1 = []
-# summa1(H,H1)
-# summa1(L,L1)
+H1 = [] 
+L1 = []
+summa1(H,H1)
+summa1(L,L1)
 
-# plt.plot(L1,H)
-# plt.grid()
-# plt.ylabel('Высота, км')
-# plt.xlabel('L, км')
-# plt.savefig('figs/Траектория полета'+'.jpg')
-# plt.show()
+plt.plot(L1,H)
+plt.grid()
+plt.ylabel('Высота, км')
+plt.xlabel('L, км')
+plt.savefig('figs/Траектория полета'+'.jpg')
+plt.show()
 
 m = [36000,36000, 14400, 0]
-L = [6300,9954,11052.52]
+L = [8202,11200,14238]
 
 L1 = []
 summa1(L,L1)

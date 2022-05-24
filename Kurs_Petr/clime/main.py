@@ -43,7 +43,7 @@ def Vy(M,H):
 H0 = 0
 M0 = 0.276*1.2
 Mk = 1.065
-Hk =16000
+Hk =17000
 h = 1000
 
 method = 'cubic'
@@ -113,7 +113,7 @@ for i in range(len(H)-1):
     teta_nab.append(kappa[i]*nx(M(H[i]),H[i])*57.3)
     nx_cred.append(0.5*(1/nx(M(H[i]),H[i])+1/nx(M(H[i+1]),H[i+1])))
     dL_nab.append(nx_cred[i]*dHe[i]/1000)
-    Vy_cred.append(0.5*(1/Vy(M([i]),H[i])+1/Vy(M([i+1]),H[i+1])))
+    Vy_cred.append(0.5*(1/V_y[i]+1/V_y[i+1]))
     dt_nab.append(dHe[i]*Vy_cred[i]/60)
     CeP_cred.append(0.5*(CeP[i]+CeP[i+1]))
     dmt_nab.append(dHe[i]*CeP_cred[i]/3600)
@@ -193,26 +193,26 @@ summa1(dt_nab,T)
 summa1(dmt_nab,mama)
 H = np.append(H,Hk)
 
-# plt.plot(T,np.multiply(L,100),'--',T,H,T,mama,'-.')
-# plt.grid()
-# plt.legend((r'$L \cdot 10^{-2}$ км',r'$H$, м',r'$m_{T_{наб}}$, кг'))
-# plt.xlabel('t,мин')
-# plt.savefig('figs/Характеристики набора высоты1'+'.jpg')
-# plt.show()
+plt.plot(T,np.multiply(L,100),'--',T,H,T,mama,'-.')
+plt.grid()
+plt.legend((r'$L \cdot 10^{-2}$ км',r'$H$, м',r'$m_{T_{наб}}$, кг'))
+plt.xlabel('t,мин')
+plt.savefig('figs/Характеристики набора высоты1'+'.jpg')
+plt.show()
 
-# T = np.delete(T,-1)
-# H = np.delete(H,-1)
+T = np.delete(T,-1)
+H = np.delete(H,-1)
 
-# fig, ax = plt.subplots()
-# ax.plot(T,Vy_nab,marker ='^')
-# ax.plot(T,teta_nab,marker = 's')
-# ax.plot(T,H/1000,marker = 'x')
-# ax.plot(T,M(H),marker = 'o')
-# plt.grid()
-# plt.legend((r'$V_y^*$, м/c', r'$\theta$, град',r'H, км',r'M' ))
-# plt.xlabel('t,мин')
-# plt.savefig('figs/Характеристики набора высоты2'+'.jpg')
-# plt.show()
+fig, ax = plt.subplots()
+ax.plot(T,Vy_nab,marker ='^')
+ax.plot(T,teta_nab,marker = 's')
+ax.plot(T,H/1000,marker = 'x')
+ax.plot(T,M(H),marker = 'o')
+plt.grid()
+plt.legend((r'$V_y^*$, м/c', r'$\theta$, град',r'H, км',r'M' ))
+plt.xlabel('t,мин')
+plt.savefig('figs/Характеристики набора высоты2'+'.jpg')
+plt.show()
 
 m_sn=0.5
 mt_nab_=summa(dmt_nab)/mass
@@ -223,10 +223,10 @@ m_cn=0.15
 
 
 mt_kr=1-m_sn-m_cn-mt_nab_-mt_snp-mt_anz-mt_pr
-Tkr=60*K(M(11000),11000)/(9.81*Ce0(M(11000),11000)*0.1)*math.log((1-mt_nab_-mt_pr)/(1-mt_kr-mt_nab_-mt_pr))
-Lkr=(3.6*V(M(11000),11000)*K(M(11000),11000)/(9.81*Ce0(M(11000),11000)*0.1))*math.log((1-mt_nab_-mt_pr)/(1-mt_kr-mt_nab_-mt_pr))
+Tkr=60*K(M(17000),17000)/(9.81*Ce0(M(17000),17000)*0.1)*math.log((1-mt_nab_-mt_pr)/(1-mt_kr-mt_nab_-mt_pr))
+Lkr=(3.6*V(M(17000),17000)*K(M(17000),17000)/(9.81*Ce0(M(17000),17000)*0.1))*math.log((1-mt_nab_-mt_pr)/(1-mt_kr-mt_nab_-mt_pr))
 m_kkr=1-mt_nab_-mt_pr-mt_kr
-Ro_nkr=2*m_kkr*Ps/(Cy(M(11000),11000)*V(M(11000),11000)**2)
+Ro_nkr=2*m_kkr*Ps/(Cy(M(17000),17000)*V(M(17000),17000)**2)
 print("Время полета =",Tkr,"Дальность полета ",Lkr,"Плотность на конечной высоте =",Ro_nkr)
 
 #Участок снижения 
