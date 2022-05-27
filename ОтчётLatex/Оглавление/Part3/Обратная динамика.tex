@@ -172,7 +172,7 @@
 \subsubsection{Обратная динамики }
 Обратная динамика вычислена через обратные связи как показанно на рис.\ref{fig:САУ_ОД}
 \begin{figure}[H]
-    \centering \includegraphics[width=15cm,height=10cm]{Оглавление/Part3/figures/САУ_ОД.png}
+    \centering \includegraphics[width=15cm,height=10cm]{Оглавление/Part3/figures/Неполная схема СПС.png}
     \caption{Реализация динамической инверсии}
     {\label{fig:САУ_ОД}}
     \end{figure}
@@ -183,11 +183,27 @@
 Результаты получаные при изучении робастности предоставлены на рис.\ref{fig:Модель без PI}
 
 \begin{figure}[H]
-    \centering \includegraphics[width=15cm,height=10cm]{Оглавление/Part3/figures/САУ_ОД.png}
-    \caption{Реализация динамической инверсии}
+    \centering \includegraphics[width=\linewidth]{Оглавление/Part3/figures/Модель без PI.jpg}
+    \caption{Результаты эксперимнтов без применения PI-контроллераы}
     {\label{fig:Модель без PI}}
 \end{figure}
-    
+Из рис.{\ref{fig:Модель без PI}} видно, что с увеличением процнта неточности знаний лётчику сложнее выполнять задачу слежения 
+(увеличивается разброс по ошибке $\sigma_e^2$)
+
+\begin{table}[H]
+    \caption{Результаты экспериментов}
+    \centering
+    \label{tab:Результаты экспериментов без PI}
+    \begin{tabular}{|c|c|c|c|}
+        \hline 
+        № э.& $\sigma^2_e,$ см$^2$ & $\sigma^2_c$ см$^2$ & $n_e$ см$^2$ \\ \hline 
+        1& 0.103 & 13.54 & 0.0254\\ \hline
+        2& 0.125 & 15.14  & 0.037 \\ \hline
+        3& 0.131 & 12.74 & 0.047\\ \hline
+
+    \end{tabular}
+\end{table}
+
     Также мы подразумеваем, что мы имеем дело с $K_\text{ш} = -0,6$
 
     Из Рис. {\ref{fig:Результаты экспериментов без PI}}
