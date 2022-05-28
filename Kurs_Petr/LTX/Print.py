@@ -78,7 +78,7 @@ P_potr = Pp(M_interp,H_interp)
 
 # for i in range(len(H_interp)):
 #     plt.plot(M_interp,qh(M_interp,H_interp[i]))
-#     plt.legend([r'$q_ч,$ кг/ч'])
+    # plt.legend([r'$q_ч,$ кг/ч'])
 #     plt.grid()
 #     plt.title('H = '+str(H_interp[i])+' км')
 #     plt.xlabel('Число Маха')
