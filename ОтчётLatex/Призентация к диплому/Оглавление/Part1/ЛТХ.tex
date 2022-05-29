@@ -50,7 +50,7 @@
         \begin{block}{Потолки}
         \begin{itemize}
             \item <+-> []
-            \item <+-> [] Расчёт теоретического и практического потолка производится по $V_{y_{max}}$
+            \item <+-> [] Расчёт теоретического и практического потолка производится по $V^*_{y_{max}}$
             \item <+-> [] $H_\text{т} = 19,8$ км 
             \item <+-> [] $H_\text{пр} = 19,5$ км
         \end{itemize}
@@ -73,4 +73,106 @@
             \end{itemize}
     \end{itemize}
     \end{block}
+\end{frame}
+
+\begin{frame}{Расчёт траектории набора}
+    \begin{block}{Выбор начальных параметров}
+        Начальные значения H и М определяются следующим образом $H_0$ = 0 км $M_0$ = 1,2$\cdot M_{min \ \text{доп}}$, а конечные значения выбираются из
+        условия минимума километрового расходатоплива в установившемся горизонтальном полете. Высота и число Маха, при которых километровый расход 
+        топлива принимает наименьшее значение, определены в предыдущих слайдах 
+    \end{block}
+\end{frame}
+
+\begin{frame}{Расчёт траектории набор}
+    \begin{minipage}[c]{0.45\textwidth}
+        \center{\includegraphics[width=6cm, height = 7cm]{../Оглавление/Part1/figures/Характеристики набора высоты1.jpg}}
+    \end{minipage}
+    \begin{minipage}[c]{0.45\textwidth}
+        \center{\includegraphics[width=6cm, height = 7cm]{../Оглавление/Part1/figures/Характеристики набора высоты2.jpg}}
+    \end{minipage}
+\end{frame}
+ 
+\begin{frame}{Расчёт траектории набора}
+    \begin{block}{Результаты рассчётов}
+    \begin{table}
+        \begin{tabular}{|c|c|c|}
+            \hline
+            Параметр&  начение & Единицы  \\ \hline
+            $m_{T_{\text{наб}}}$& 7225,6 &кг \\ \hline
+            $L_\text{наб}$& 278,04 &км \\ \hline
+            $T_\text{наб}$& 20,06 & мин\\ \hline
+        \end{tabular}
+    \end{table}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Расчёт крейсерского полёта}
+    \begin{block}{Выбор начальных параметров}
+        $\bar{m}_{T_\text{наб}}$ = 0,5 – относительная масса пустого снаряженного самолета \\ 
+        $\bar{m}_\text{цн}$ = 0,15 – относительная масса целевой нагрузки \\ 
+        $\bar{m}_\text{снп}$ = 0,015 – относительная масса топлива 
+        расходуемая при снижении и посадке  \\
+        $\bar{m}_{T_\text{наб}}$– относительная масса топлива, расходуемая при наборе высоты \\
+    \end{block}
+    \begin{itemize}
+        \item <+-> []
+    \item <+-> [] \begin{block}{Результаты расчётов характеристик крейсерского полёта}
+        \begin{table}
+            \begin{tabular}{|c|c|c|}
+                \hline
+                Параметр& Значение & Единицы\\ \hline
+                $H_\text{к \ кр}$& 19.3 & км\\ \hline
+                $L_\text{кр}$& 7610,74 &кг \\ \hline
+                $T_\text{кр}$& 403,43 & мин\\ \hline
+            \end{tabular}
+        \end{table}
+    \end{block}
+    \end{itemize}
+\end{frame} 
+
+\begin{frame}{Расчёт траектории спуска} %Предупреждение
+        \begin{minipage}[c]{0.45\textwidth}
+            \center{\includegraphics[width=6cm, height = 7cm]{../Оглавление/Part1/figures/Характеристики спуска1.jpg}}
+        \end{minipage}
+        \begin{minipage}[c]{0.45\textwidth}
+            \center{\includegraphics[width=6cm, height = 7cm]{../Оглавление/Part1/figures/Характеристики пуска2.jpg}}
+        \end{minipage}
+\end{frame}
+
+\begin{frame}{Расчёт траектории спуска}
+    \begin{block}{Результаты расчётов}
+        \begin{table}
+            \begin{tabular}{|c|c|c|}
+                \hline
+                Параметр& Значение & Единицы\\ \hline
+                $m_{T_\text{спуск}}$&756,936 & кг\\ \hline
+                $L_\text{спуск}$& 314,16 &км \\ \hline
+                $T_\text{спусе}$& 41,929 & мин\\ \hline
+            \end{tabular}
+        \end{table}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Расчёт траектории полёта}
+    \center{\includegraphics[width=10cm, height = 8cm]{../Оглавление/Part1/figures/Траектория полета.jpg}}
+\end{frame}
+
+\begin{frame}{Расчёт транспортных возможностей самолёта}
+    \begin{itemize}
+        \item <+-> []
+        \item <+-> [] \begin{block}{Основные положения}
+            \begin{itemize}
+            \item <+-> [] Расчёт ведётся для трёх режимов
+            \begin{itemize}
+                \item <+-> Полет с максимальной коммерческой нагрузкой
+                \item <+-> Полёт с максимальным запасом топлива
+                \item <+-> Полёт без коммерческой нагрузки ($m_\text{цн}$ = 0) с максимальным запасом топлива
+            \end{itemize}
+        \end{itemize}
+        \end{block}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Диаграмма транспортных возможностей самолёта}
+    \center{\includegraphics[width=10cm, height = 8cm]{../Оглавление/Part1/figures/Транспортные возможности.jpg}}
 \end{frame}
