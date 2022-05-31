@@ -4,6 +4,7 @@ function print2(PicthureName,W_withCAU,W_withoutCAU,leggend_withCAU,leggend_with
     subplot(1,2,1);
     margin(W_withCAU);
     legend(leggend_withCAU);
+
     grid;
 
     subplot(1,2,2);
