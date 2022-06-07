@@ -1,18 +1,57 @@
 
+\begin{frame}{Специальная часть}
+    \center{\includegraphics[width=11cm, height = 6cm]{../Оглавление/Part3/figures/СамолётЛётчик.png}}
+\end{frame}
+\begin{frame}{Специальная часть}{Линеаризованная модель объкта управления}
+    \begin{equation} \begin{aligned} \dot{x} = Ax+Bu \\ 
+    y = Cx + Du \end{aligned} \end{equation}
+$$\dot{x} = \begin{bmatrix}
+        \dot{V}_x\\ 
+        \dot{V}_y\\ 
+        \dot{\omega_z}\\ 
+        \dot{\theta}
+    \end{bmatrix},
+u = \delta_\text{э}$$
+   $ A = \begin{bmatrix}
+        -0.0110 & 0.0433 & 1.7295 & -7.1876\\ 
+        -0.0691 & -0.6975 & -7.0678 & -54.8976\\ 
+        0.00011 & 0.00116 & -0.35407 & 0.0911\\ 
+        0 & 0 & 1 & 0
+    \end{bmatrix} ,$  
+        $B = \begin{bmatrix}
+        -0.4412\\ 
+        -12.388\\ 
+        -0.58446 \\ 
+        0
+    \end{bmatrix}$  
+\end{frame}
 
-\begin{frame}{Обратная динамика}{Робастность системы}
+\begin{frame}{Специальная часть}{Робастность системы}
     \begin{block}{Схема}
         \center{\includegraphics[width=11cm, height = 6cm]{../Оглавление/Part3/figures/Неполная схема СПС.png}}
     \end{block}
 \end{frame}
+ 
+\begin{frame}{Специальная часть}{Робастность системы}
+    \begin{block}{Коэффициенты}
+        \begin{center}
+    $m_\theta = 0.0911$ \\
+    $m_{V_x} = 0.00011$ \\ 
+    $m_{V_y} = 0.0016$ \\ 
+    $m_{\omega_z} = -0.35407$ \\ 
+    $m_{\delta_\text{э}} = -0.58446$ \\ 
+        \end{center}
+    \end{block}
+    $$\delta_\text{э}= -\frac{1}{m_{\delta_\text{э}}} (m_{\omega_z} \omega_z + m_{V_y} V_y + m_{V_x} V_x - \dot{\omega}_z)$$ 
+\end{frame}
 
-\begin{frame}{Обратная динамика}{Робастность системы}
+\begin{frame}{Специальная часть}{Робастность системы}
     \begin{block}{Результаты экспериментов}
         \center{\includegraphics[width=11cm, height = 6cm]{../Оглавление/Part3/figures/Модель без PI.jpg}}
     \end{block}
 \end{frame}
 
-\begin{frame}{Обратная динамика}{Робастность системы}
+\begin{frame}{Специальная часть}{Робастность системы}
 
 \begin{table}[H]
     \begin{tabular}{|c|c|c|c|}
@@ -26,7 +65,7 @@
 \end{table}
 \end{frame}
  
-\begin{frame}{Обратная динамика}{Робастность системы}
+\begin{frame}{Специальная часть}{Робастность системы}
 \begin{table}[H]
     \begin{tabular}{|c|c|c|c|c|}
         \hline 
@@ -45,26 +84,31 @@
 
 \end{frame}
 
-\begin{frame}{Обратная динамика}{Робастность системы}
-    \begin{block}{Результаты при изменении динамик самолёта на 80 \%}
-        \center{\includegraphics[width=11cm, height = 6cm]{../Оглавление/Part3/figures/testo2.jpg}}
+\begin{frame}{Специальная часть}{Параметры PI-контроллера}
+    \begin{block}{Задача PI-контроллера}
+        PI-котроллер в теории должен уменьшать  
+    \end{block}
+    \begin{block}{PI-короллер}
+        $$y(t) = K_p + \frac{1}{p}K_i,$$
+        где $K_p = 2$, $K_i = 5$.
+        Коэффициенты PI-котроллера были выбраны с условием того, что система должна оставаться устойчева.     
     \end{block}
 \end{frame}
 
-\begin{frame}{Обратная динамика}{Улучшение робасности с применением PI-контроллера}
+\begin{frame}{Специальная часть}{Улучшение робасности с применением PI-контроллера}
     \begin{block}{Схема}
-        \center{\includegraphics[width=15cm, height = 6cm]{../Оглавление/Part3/figures/Полная схема СПС.png}}
+        \center{\includegraphics[width=10cm, height = 6cm]{../Оглавление/Part3/figures/Полная схема СПС.png}}
     \end{block}
 \end{frame}
 
-\begin{frame}{Обратная динамика}{Улучшение робасности с применением PI-контроллера}
+\begin{frame}{Специальная часть}{Улучшение робасности с применением PI-контроллера}
     \begin{block}{Результаты экспериментов}
         \center{\includegraphics[width=11cm, height = 6cm]{../Оглавление/Part3/figures/Модель с PI.jpg}}
     \end{block}
 \end{frame}
 
 
-\begin{frame}{Обратная динамика}{Робастность системы}
+\begin{frame}{Специальная часть}{Робастность системы}
 
 \begin{table}[H]
     \begin{tabular}{|c|c|c|c|}
@@ -78,7 +122,7 @@
 \end{table}
 \end{frame}
  
-\begin{frame}{Обратная динамика}{Робастность системы}
+\begin{frame}{Специальная часть}{Робастность системы}
 \begin{table}[H]
     \begin{tabular}{|c|c|c|c|c|}
         \hline 
@@ -97,5 +141,13 @@
         & -0.0177 + 0.0000$i$ &  &  &  \\ \hline 
     \end{tabular}
 \end{table}
+\end{frame}
 
+\begin{frame}{Специальная часть}{Переходные процессы}
+    \begin{minipage}[c]{0.45\textwidth}
+        \center{\includegraphics[width=6cm, height = 6cm]{img/withoutPI.jpg}}
+    \end{minipage}
+    \begin{minipage}[c]{0.45\textwidth}
+        \center{\includegraphics[width=6cm, height = 6cm]{img/withPI.jpg}}
+    \end{minipage}
 \end{frame}
