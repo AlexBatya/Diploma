@@ -54,7 +54,7 @@ def ny_e(M,H):
 
 
 mc = 180000 - 30000*0.5
-ny_ee = np.array([3.5])
+ny_ee = np.array([2.5])
 M = np.arange(0.41,1.35,0.1)
 H = 6000
 # print(M)
