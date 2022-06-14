@@ -1,5 +1,5 @@
 
-\begin{frame}{Специальная часть}
+\begin{frame}{Специальная часть}{Задача компенсаторного слежения}
     \center{\includegraphics[width=11cm, height = 6cm]{../Оглавление/Part3/figures/СамолётЛётчик.png}}
 \end{frame}
 \begin{frame}{Специальная часть}{Линеаризованная модель объкта исследований}
@@ -28,33 +28,43 @@ u = \delta_\text{э}$$
 
 
  
-\begin{frame}{Специальная часть}{Собственная робастность системы}
-    \begin{block}{Коэффициенты}
-    % $m_\vartheta = 0.0911$ \\
-    % $m_{V_x} = 0.00011$ \\ 
-    % $m_{V_y} = 0.0016$ \\ 
-    % $m_{\omega_z} = -0.35407$ \\ 
-    % $m_{\delta_\text{э}} = -0.58446$ \\ 
-        Пусть система дифференциальных уравнений линеаризованной динамической системы в продольном канале управления 
-        имеет вид (2), а необходимо привести к виду (3)
-        \begin{equation}
-            \label{ESS}
-            E \dot{x} = A'x + B'u
-        \end{equation}
-        $$E^{-1}E \dot{x}= E^{-1}A'x + E^{-1}B'u$$
-        $$E^{-1}A' = A$$
-        $$E^{-1}B' = B$$
-        \begin{equation}
-            \label{SS}
-            \dot{x} = Ax+Bu
-        \end{equation}
-    \end{block}
-    $$\delta_\text{э}= -\frac{1}{m_{\delta_\text{э}}} (m_{\omega_z} \omega_z + m_{V_y} V_y + m_{V_x} V_x - \dot{\omega}_z)$$ 
-\end{frame}
+% \begin{frame}{Специальная часть}{Собственная робастность системы}
+%     \begin{block}{Коэффициенты}
+%     % $m_\vartheta = 0.0911$ \\
+%     % $m_{V_x} = 0.00011$ \\ 
+%     % $m_{V_y} = 0.0016$ \\ 
+%     % $m_{\omega_z} = -0.35407$ \\ 
+%     % $m_{\delta_\text{э}} = -0.58446$ \\ 
+%         Пусть система дифференциальных уравнений линеаризованной динамической системы в продольном канале управления 
+%         имеет вид (2), а необходимо привести к виду (3)
+%         \begin{equation}
+%             \label{ESS}
+%             E \dot{x} = A'x + B'u
+%         \end{equation}
+%         $$E^{-1}E \dot{x}= E^{-1}A'x + E^{-1}B'u$$
+%         $$E^{-1}A' = A$$
+%         $$E^{-1}B' = B$$
+%         \begin{equation}
+%             \label{SS}
+%             \dot{x} = Ax+Bu
+%         \end{equation}
+%     \end{block}
+% \end{frame}
 
 \begin{frame}{Специальная часть}{Собственная робастность системы}
+    \begin{minipage}[c]{0.45\textwidth}
+        \begin{center}
+        $f_1 = \dot{\omega}_z - m_{\delta_\text{э}}\delta_\text{э}$
+        \end{center}
+    \end{minipage}
+    \begin{minipage}[c]{0.45\textwidth}
+        \begin{center}
+        $G_c = \frac{K}{p+K} = \frac{1}{Tp+1}$
+        \end{center}
+    \end{minipage}
     \begin{block}{Схема}
-        \center{\includegraphics[width=11cm, height = 6cm]{../Оглавление/Part3/figures/Неполная схема СПС.png}}
+        \center{\includegraphics[width=9cm, height = 5cm]{../Оглавление/Part3/figures/Неполная схема СПС.png}}
+        % \input{../Оглавление/Part3/figures/СамолётЛётчик}
     \end{block}
 \end{frame}
 
@@ -99,7 +109,7 @@ u = \delta_\text{э}$$
 
 \begin{frame}{Специальная часть}{Параметры PI-контроллера}
     \begin{block}{Задача PI-контроллера}
-        PI-контроллер в теории должен уменьшать сигнал ошибки $e =k - \omega_z$, где $k$ - это сигнал входящий в систему.
+        PI-контроллер в теории должен уменьшать сигнал ошибки $e =\delta_\text{э} - \omega_z$, где $k$ - это сигнал входящий в систему.
     \end{block}
     \begin{block}{PI-контроллер}
         $$y(t) = K_p + \frac{1}{p}K_i,$$
@@ -156,11 +166,11 @@ u = \delta_\text{э}$$
 % \end{table}
 % \end{frame}
 
-\begin{frame}{Специальная часть}{Переходные процессы}
-    \begin{minipage}[c]{0.45\textwidth}
-        \center{\includegraphics[width=6cm, height = 6cm]{img/withoutPI.jpg}}
-    \end{minipage}
-    \begin{minipage}[c]{0.45\textwidth}
-        \center{\includegraphics[width=6cm, height = 6cm]{img/withPI.jpg}}
-    \end{minipage}
-\end{frame}
+% \begin{frame}{Специальная часть}{Переходные процессы}
+%     \begin{minipage}[c]{0.45\textwidth}
+%         \center{\includegraphics[width=6cm, height = 6cm]{img/withoutPI.jpg}}
+%     \end{minipage}
+%     \begin{minipage}[c]{0.45\textwidth}
+%         \center{\includegraphics[width=6cm, height = 6cm]{img/withPI.jpg}}
+%     \end{minipage}
+% \end{frame}
